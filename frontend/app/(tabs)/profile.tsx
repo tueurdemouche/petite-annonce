@@ -215,6 +215,47 @@ export default function ProfileScreen() {
           )}
         </View>
 
+        {/* Legal Section */}
+        <View style={styles.legalSection}>
+          <Text style={styles.legalTitle}>Informations légales</Text>
+          
+          <TouchableOpacity
+            style={styles.legalItem}
+            onPress={() => router.push('/legal/privacy')}
+          >
+            <Ionicons name="shield-checkmark-outline" size={20} color="#666" />
+            <Text style={styles.legalItemText}>Politique de Confidentialité</Text>
+            <Ionicons name="chevron-forward" size={20} color="#CCC" />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.legalItem}
+            onPress={() => router.push('/legal/cgu')}
+          >
+            <Ionicons name="document-text-outline" size={20} color="#666" />
+            <Text style={styles.legalItemText}>Conditions d'Utilisation</Text>
+            <Ionicons name="chevron-forward" size={20} color="#CCC" />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.legalItem}
+            onPress={() => router.push('/legal/terms')}
+          >
+            <Ionicons name="cart-outline" size={20} color="#666" />
+            <Text style={styles.legalItemText}>Conditions de Vente</Text>
+            <Ionicons name="chevron-forward" size={20} color="#CCC" />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.legalItem}
+            onPress={() => router.push('/legal/contact')}
+          >
+            <Ionicons name="mail-outline" size={20} color="#666" />
+            <Text style={styles.legalItemText}>Nous Contacter</Text>
+            <Ionicons name="chevron-forward" size={20} color="#CCC" />
+          </TouchableOpacity>
+        </View>
+
         {/* Logout */}
         <TouchableOpacity style={styles.logoutBtn} onPress={handleLogout}>
           <Ionicons name="log-out-outline" size={22} color="#FF4444" />
