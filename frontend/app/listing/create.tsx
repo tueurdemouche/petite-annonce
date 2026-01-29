@@ -793,7 +793,7 @@ const styles = StyleSheet.create({
   },
   categoryOptionActive: {
     borderColor: '#2563EB',
-    backgroundColor: '#FFF5EE',
+    backgroundColor: '#EFF6FF',
   },
   categoryOptionText: {
     fontSize: 16,
@@ -912,7 +912,7 @@ const styles = StyleSheet.create({
   locationBtn: {
     width: 52,
     height: 52,
-    backgroundColor: '#FFF5EE',
+    backgroundColor: '#EFF6FF',
     borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',

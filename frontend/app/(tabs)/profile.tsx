@@ -287,7 +287,7 @@ const styles = StyleSheet.create({
   verifyBtn: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#FFF5EE',
+    backgroundColor: '#EFF6FF',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
