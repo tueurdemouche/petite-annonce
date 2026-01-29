@@ -7,27 +7,27 @@
       "developmentClient": true,
       "distribution": "internal",
       "ios": {
-        "bundleIdentifier": "com.petiteannonce.app"
+        "bundleIdentifier": "com.petiteannonce.ios"
       },
       "android": {
-        "package": "com.petiteannonce.app"
+        "package": "com.petiteannonce.ios"
       }
     },
     "preview": {
       "distribution": "internal",
       "ios": {
-        "bundleIdentifier": "com.petiteannonce.app"
+        "bundleIdentifier": "com.petiteannonce.ios"
       },
       "android": {
-        "package": "com.petiteannonce.app"
+        "package": "com.petiteannonce.ios"
       }
     },
     "production": {
       "ios": {
-        "bundleIdentifier": "com.petiteannonce.app"
+        "bundleIdentifier": "com.petiteannonce.ios"
       },
       "android": {
-        "package": "com.petiteannonce.app"
+        "package": "com.petiteannonce.ios"
       }
     }
   },
@@ -35,7 +35,7 @@
     "production": {
       "ios": {
         "appleId": "victor-marouard@hotmail.com",
-        "ascAppId": "com.petiteannonce.app",
+        "ascAppId": "com.petiteannonce.ios",
         "appleTeamId": "ZFL8HP8H4Y"
       }
     }
