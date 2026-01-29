@@ -87,7 +87,7 @@ export default function PrivacyPolicyScreen() {
             • Supprimer votre compte et vos données{"\n"}
             • Vous opposer au traitement de vos données{"\n"}
             • Exporter vos données (portabilité){"\n\n"}
-            Pour exercer ces droits, contactez-nous à : contact@petiteannonce.fr
+            Pour exercer ces droits, contactez-nous à : victor-marouard@hotmail.com
           </Text>
         </View>
 
@@ -116,7 +116,7 @@ export default function PrivacyPolicyScreen() {
           <Text style={styles.sectionTitle}>10. Contact</Text>
           <Text style={styles.text}>
             Pour toute question concernant cette politique de confidentialité :{"\n\n"}
-            Email : contact@petiteannonce.fr{"\n"}
+            Email : victor-marouard@hotmail.com{"\n"}
             Adresse : Petite Annonce SAS, France
           </Text>
         </View>

@@ -27,7 +27,7 @@ export default function ContactScreen() {
     }
 
     // Open email client
-    const mailtoUrl = `mailto:contact@petiteannonce.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\n${message}`)}`;
+    const mailtoUrl = `mailto:victor-marouard@hotmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\n${message}`)}`;
     Linking.openURL(mailtoUrl);
 
     Alert.alert('Message envoyé', 'Nous vous répondrons dans les plus brefs délais.');
@@ -54,14 +54,14 @@ export default function ContactScreen() {
           
           <TouchableOpacity 
             style={styles.contactCard}
-            onPress={() => Linking.openURL('mailto:contact@petiteannonce.fr')}
+            onPress={() => Linking.openURL('mailto:victor-marouard@hotmail.com')}
           >
             <View style={styles.contactIconContainer}>
               <Ionicons name="mail" size={24} color="#2563EB" />
             </View>
             <View style={styles.contactInfo}>
               <Text style={styles.contactLabel}>Email</Text>
-              <Text style={styles.contactValue}>contact@petiteannonce.fr</Text>
+              <Text style={styles.contactValue}>victor-marouard@hotmail.com</Text>
             </View>
             <Ionicons name="chevron-forward" size={20} color="#CCC" />
           </TouchableOpacity>
