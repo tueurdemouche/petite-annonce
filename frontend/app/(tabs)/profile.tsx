@@ -429,6 +429,30 @@ const styles = StyleSheet.create({
     color: '#FF4444',
     fontWeight: '500',
   },
+  legalSection: {
+    backgroundColor: '#FFF',
+    marginTop: 8,
+    padding: 16,
+  },
+  legalTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#333',
+    marginBottom: 12,
+  },
+  legalItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 14,
+    borderBottomWidth: 1,
+    borderBottomColor: '#F0F0F0',
+    gap: 12,
+  },
+  legalItemText: {
+    flex: 1,
+    fontSize: 15,
+    color: '#333',
+  },
   emptyContainer: {
     flex: 1,
     justifyContent: 'center',
