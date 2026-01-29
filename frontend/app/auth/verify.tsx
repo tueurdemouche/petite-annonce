@@ -130,7 +130,7 @@ export default function VerifyIdentityScreen() {
         </TouchableOpacity>
 
         <View style={styles.header}>
-          <Ionicons name="shield-checkmark-outline" size={60} color="#FF6B00" />
+          <Ionicons name="shield-checkmark-outline" size={60} color="#2563EB" />
           <Text style={styles.title}>Vérification d'identité</Text>
           <Text style={styles.subtitle}>
             Pour publier des annonces, nous devons vérifier votre identité (18+ requis)
@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   submitBtn: {
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
     height: 56,
     borderRadius: 12,
     justifyContent: 'center',
@@ -320,7 +320,7 @@ const styles = StyleSheet.create({
   },
   backBtn: {
     marginTop: 24,
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
     paddingHorizontal: 32,
     paddingVertical: 14,
     borderRadius: 12,

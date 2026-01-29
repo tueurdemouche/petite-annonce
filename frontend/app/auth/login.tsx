@@ -214,7 +214,7 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   loginBtn: {
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
     height: 56,
     borderRadius: 12,
     justifyContent: 'center',
@@ -249,7 +249,7 @@ const styles = StyleSheet.create({
     color: '#666',
   },
   registerLinkTextBold: {
-    color: '#FF6B00',
+    color: '#2563EB',
     fontWeight: '600',
   },
 });

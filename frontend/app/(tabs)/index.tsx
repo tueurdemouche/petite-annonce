@@ -80,7 +80,7 @@ export default function HomeScreen() {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#FF6B00" />
+        <ActivityIndicator size="large" color="#2563EB" />
       </View>
     );
   }
@@ -115,7 +115,7 @@ export default function HomeScreen() {
                   <Ionicons
                     name={cat.icon as any}
                     size={28}
-                    color="#FF6B00"
+                    color="#2563EB"
                   />
                 </View>
                 <Text style={styles.categoryName}>{cat.name}</Text>
@@ -132,7 +132,7 @@ export default function HomeScreen() {
           <View style={styles.section}>
             <View style={styles.sectionHeader}>
               <Text style={styles.sectionTitle}>Annonces sponsorisées</Text>
-              <Ionicons name="star" size={18} color="#FF6B00" />
+              <Ionicons name="star" size={18} color="#2563EB" />
             </View>
             <ScrollView
               horizontal
@@ -219,7 +219,7 @@ const styles = StyleSheet.create({
   },
   seeAll: {
     fontSize: 14,
-    color: '#FF6B00',
+    color: '#2563EB',
     fontWeight: '500',
   },
   categoriesGrid: {

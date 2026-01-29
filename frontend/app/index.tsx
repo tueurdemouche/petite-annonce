@@ -19,7 +19,7 @@ export default function WelcomeScreen() {
       <View style={styles.content}>
         <View style={styles.logoContainer}>
           <View style={styles.logoCircle}>
-            <Ionicons name="megaphone" size={60} color="#FF6B00" />
+            <Ionicons name="megaphone" size={60} color="#2563EB" />
           </View>
           <Text style={styles.appName}>Petite Annonce</Text>
           <Text style={styles.tagline}>Auto • Moto • Immobilier</Text>
@@ -27,15 +27,15 @@ export default function WelcomeScreen() {
 
         <View style={styles.features}>
           <View style={styles.featureRow}>
-            <Ionicons name="car" size={24} color="#FF6B00" />
+            <Ionicons name="car" size={24} color="#2563EB" />
             <Text style={styles.featureText}>Véhicules Auto & Moto</Text>
           </View>
           <View style={styles.featureRow}>
-            <Ionicons name="home" size={24} color="#FF6B00" />
+            <Ionicons name="home" size={24} color="#2563EB" />
             <Text style={styles.featureText}>Immobilier & Location</Text>
           </View>
           <View style={styles.featureRow}>
-            <Ionicons name="shield-checkmark" size={24} color="#FF6B00" />
+            <Ionicons name="shield-checkmark" size={24} color="#2563EB" />
             <Text style={styles.featureText}>Annonces vérifiées</Text>
           </View>
         </View>
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   primaryButton: {
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
     height: 56,
     borderRadius: 12,
     justifyContent: 'center',
@@ -137,10 +137,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 2,
-    borderColor: '#FF6B00',
+    borderColor: '#2563EB',
   },
   secondaryButtonText: {
-    color: '#FF6B00',
+    color: '#2563EB',
     fontSize: 17,
     fontWeight: '600',
   },

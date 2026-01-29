@@ -10,7 +10,7 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: '#FF6B00',
+        tabBarActiveTintColor: '#2563EB',
         tabBarInactiveTintColor: '#999',
         tabBarStyle: {
           backgroundColor: '#FFF',
@@ -48,7 +48,7 @@ export default function TabLayout() {
         options={{
           title: 'Publier',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="add-circle" size={32} color="#FF6B00" />
+            <Ionicons name="add-circle" size={32} color="#2563EB" />
           ),
         }}
       />

@@ -294,7 +294,7 @@ export default function CreateListingScreen() {
           <Ionicons
             name={cat.icon as any}
             size={28}
-            color={formData.category === key ? '#FF6B00' : '#666'}
+            color={formData.category === key ? '#2563EB' : '#666'}
           />
           <Text
             style={[
@@ -605,7 +605,7 @@ export default function CreateListingScreen() {
             onChangeText={(v) => updateField('location', v)}
           />
           <TouchableOpacity style={styles.locationBtn} onPress={getLocation}>
-            <Ionicons name="locate" size={24} color="#FF6B00" />
+            <Ionicons name="locate" size={24} color="#2563EB" />
           </TouchableOpacity>
         </View>
       </View>
@@ -650,7 +650,7 @@ export default function CreateListingScreen() {
   if (loading && edit) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#FF6B00" />
+        <ActivityIndicator size="large" color="#2563EB" />
       </View>
     );
   }
@@ -760,7 +760,7 @@ const styles = StyleSheet.create({
     borderRadius: 2,
   },
   progressStepActive: {
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
   },
   scrollView: {
     flex: 1,
@@ -792,7 +792,7 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   categoryOptionActive: {
-    borderColor: '#FF6B00',
+    borderColor: '#2563EB',
     backgroundColor: '#FFF5EE',
   },
   categoryOptionText: {
@@ -801,7 +801,7 @@ const styles = StyleSheet.create({
     color: '#666',
   },
   categoryOptionTextActive: {
-    color: '#FF6B00',
+    color: '#2563EB',
   },
   subCategories: {
     marginTop: 16,
@@ -819,7 +819,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   subCategoryOptionActive: {
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
   },
   subCategoryText: {
     fontSize: 15,
@@ -867,7 +867,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   chipActive: {
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
   },
   chipText: {
     fontSize: 13,
@@ -894,7 +894,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   switchBtnActive: {
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
   },
   switchBtnText: {
     fontSize: 14,
@@ -957,7 +957,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
     padding: 14,
     borderRadius: 12,
     marginTop: 24,
@@ -993,7 +993,7 @@ const styles = StyleSheet.create({
     height: 52,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
     borderRadius: 12,
   },
   nextBtnText: {

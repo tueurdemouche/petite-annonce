@@ -65,7 +65,7 @@ export default function MessagesScreen() {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#FF6B00" />
+        <ActivityIndicator size="large" color="#2563EB" />
       </View>
     );
   }
@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
   },
   listingTitle: {
     fontSize: 13,
-    color: '#FF6B00',
+    color: '#2563EB',
     marginBottom: 4,
   },
   lastMessage: {
@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
     color: '#666',
   },
   unreadBadge: {
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
     borderRadius: 12,
     minWidth: 24,
     height: 24,
@@ -248,7 +248,7 @@ const styles = StyleSheet.create({
   },
   loginBtn: {
     marginTop: 24,
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
     paddingHorizontal: 32,
     paddingVertical: 14,
     borderRadius: 12,

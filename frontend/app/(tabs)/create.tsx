@@ -32,7 +32,7 @@ export default function CreateScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
         <View style={styles.iconContainer}>
-          <Ionicons name="add-circle" size={80} color="#FF6B00" />
+          <Ionicons name="add-circle" size={80} color="#2563EB" />
         </View>
         <Text style={styles.title}>Publier une annonce</Text>
         <Text style={styles.description}>
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   createBtn: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
     paddingHorizontal: 32,
     paddingVertical: 16,
     borderRadius: 12,

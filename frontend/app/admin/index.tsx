@@ -102,7 +102,7 @@ export default function AdminScreen() {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#FF6B00" />
+        <ActivityIndicator size="large" color="#2563EB" />
       </View>
     );
   }
@@ -339,7 +339,7 @@ const styles = StyleSheet.create({
   statValue: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#FF6B00',
+    color: '#2563EB',
   },
   statLabel: {
     fontSize: 11,
@@ -360,7 +360,7 @@ const styles = StyleSheet.create({
     borderBottomColor: 'transparent',
   },
   tabActive: {
-    borderBottomColor: '#FF6B00',
+    borderBottomColor: '#2563EB',
   },
   tabText: {
     fontSize: 13,
@@ -368,7 +368,7 @@ const styles = StyleSheet.create({
     color: '#999',
   },
   tabTextActive: {
-    color: '#FF6B00',
+    color: '#2563EB',
   },
   content: {
     flex: 1,
@@ -408,7 +408,7 @@ const styles = StyleSheet.create({
   listingPrice: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#FF6B00',
+    color: '#2563EB',
     marginBottom: 4,
   },
   listingMeta: {
@@ -521,7 +521,7 @@ const styles = StyleSheet.create({
   },
   reportReason: {
     fontSize: 14,
-    color: '#FF6B00',
+    color: '#2563EB',
     marginBottom: 4,
   },
   reportDetails: {

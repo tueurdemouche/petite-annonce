@@ -195,7 +195,7 @@ export default function FilterModal({ visible, onClose, category, filters, onApp
                   <Switch
                     value={localFilters.handicap_access || false}
                     onValueChange={(v) => setLocalFilters({ ...localFilters, handicap_access: v || undefined })}
-                    trackColor={{ false: '#DDD', true: '#FF6B00' }}
+                    trackColor={{ false: '#DDD', true: '#2563EB' }}
                   />
                 </View>
               </View>
@@ -207,7 +207,7 @@ export default function FilterModal({ visible, onClose, category, filters, onApp
                   <Switch
                     value={localFilters.has_garden || false}
                     onValueChange={(v) => setLocalFilters({ ...localFilters, has_garden: v || undefined })}
-                    trackColor={{ false: '#DDD', true: '#FF6B00' }}
+                    trackColor={{ false: '#DDD', true: '#2563EB' }}
                   />
                 </View>
               </View>
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
   },
   resetText: {
     fontSize: 14,
-    color: '#FF6B00',
+    color: '#2563EB',
     fontWeight: '500',
   },
   content: {
@@ -269,7 +269,7 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   chipActive: {
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
   },
   chipText: {
     fontSize: 13,
@@ -321,7 +321,7 @@ const styles = StyleSheet.create({
     borderTopColor: '#EEE',
   },
   applyBtn: {
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
     height: 52,
     borderRadius: 12,
     justifyContent: 'center',

@@ -97,7 +97,7 @@ export default function ProfileScreen() {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#FF6B00" />
+        <ActivityIndicator size="large" color="#2563EB" />
       </View>
     );
   }
@@ -128,7 +128,7 @@ export default function ProfileScreen() {
                 style={styles.verifyBtn}
                 onPress={() => router.push('/auth/verify')}
               >
-                <Ionicons name="shield-outline" size={14} color="#FF6B00" />
+                <Ionicons name="shield-outline" size={14} color="#2563EB" />
                 <Text style={styles.verifyBtnText}>Vérifier mon identité</Text>
               </TouchableOpacity>
             )}
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 40,
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 12,
@@ -295,7 +295,7 @@ const styles = StyleSheet.create({
   },
   verifyBtnText: {
     fontSize: 12,
-    color: '#FF6B00',
+    color: '#2563EB',
     fontWeight: '500',
   },
   adminBadge: {
@@ -325,7 +325,7 @@ const styles = StyleSheet.create({
   statValue: {
     fontSize: 22,
     fontWeight: '700',
-    color: '#FF6B00',
+    color: '#2563EB',
   },
   statLabel: {
     fontSize: 12,
@@ -346,7 +346,7 @@ const styles = StyleSheet.create({
     borderBottomColor: 'transparent',
   },
   tabActive: {
-    borderBottomColor: '#FF6B00',
+    borderBottomColor: '#2563EB',
   },
   tabText: {
     fontSize: 15,
@@ -354,7 +354,7 @@ const styles = StyleSheet.create({
     color: '#999',
   },
   tabTextActive: {
-    color: '#FF6B00',
+    color: '#2563EB',
   },
   listingsContainer: {
     padding: 16,
@@ -408,7 +408,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   loginBtn: {
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
     paddingHorizontal: 48,
     paddingVertical: 14,
     borderRadius: 12,
@@ -424,7 +424,7 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
   },
   registerBtnText: {
-    color: '#FF6B00',
+    color: '#2563EB',
     fontSize: 16,
     fontWeight: '500',
   },

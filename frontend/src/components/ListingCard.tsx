@@ -93,13 +93,13 @@ const styles = StyleSheet.create({
   },
   boostedCard: {
     borderWidth: 2,
-    borderColor: '#FF6B00',
+    borderColor: '#2563EB',
   },
   boostedBadge: {
     position: 'absolute',
     top: 8,
     left: 8,
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 8,
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#FF6B00',
+    color: '#2563EB',
     marginBottom: 4,
   },
   title: {

@@ -104,7 +104,7 @@ export default function SearchScreen() {
           style={styles.filterBtn}
           onPress={() => setShowFilters(true)}
         >
-          <Ionicons name="options" size={22} color="#FF6B00" />
+          <Ionicons name="options" size={22} color="#2563EB" />
         </TouchableOpacity>
       </View>
 
@@ -164,7 +164,7 @@ export default function SearchScreen() {
       {/* Results */}
       {loading ? (
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#FF6B00" />
+          <ActivityIndicator size="large" color="#2563EB" />
         </View>
       ) : (
         <FlatList
@@ -252,7 +252,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5F5F5',
   },
   categoryTabActive: {
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
   },
   categoryTabText: {
     fontSize: 13,

@@ -172,7 +172,7 @@ export default function ListingDetailScreen() {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#FF6B00" />
+        <ActivityIndicator size="large" color="#2563EB" />
       </View>
     );
   }
@@ -427,7 +427,7 @@ export default function ListingDetailScreen() {
                   style={styles.editBtn}
                   onPress={() => router.push(`/listing/create?edit=${id}`)}
                 >
-                  <Ionicons name="create-outline" size={20} color="#FF6B00" />
+                  <Ionicons name="create-outline" size={20} color="#2563EB" />
                   <Text style={styles.editBtnText}>Modifier</Text>
                 </TouchableOpacity>
                 {!listing.is_boosted && (
@@ -565,7 +565,7 @@ const styles = StyleSheet.create({
   },
   backBtn: {
     marginTop: 24,
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
     paddingHorizontal: 24,
     paddingVertical: 12,
     borderRadius: 8,
@@ -626,7 +626,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 16,
     left: 16,
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
@@ -645,7 +645,7 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 28,
     fontWeight: '700',
-    color: '#FF6B00',
+    color: '#2563EB',
     marginBottom: 8,
   },
   title: {
@@ -739,7 +739,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 25,
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 16,
@@ -779,14 +779,14 @@ const styles = StyleSheet.create({
   editBtnText: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#FF6B00',
+    color: '#2563EB',
   },
   boostBtn: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
     padding: 14,
     borderRadius: 12,
     gap: 8,
@@ -806,7 +806,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
     padding: 16,
     borderRadius: 12,
     gap: 8,
@@ -832,7 +832,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   myMessage: {
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
     alignSelf: 'flex-end',
     borderBottomRightRadius: 4,
   },
@@ -869,7 +869,7 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 22,
-    backgroundColor: '#FF6B00',
+    backgroundColor: '#2563EB',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -917,7 +917,7 @@ const styles = StyleSheet.create({
   boostOptionPrice: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#FF6B00',
+    color: '#2563EB',
   },
   cancelBtn: {
     alignItems: 'center',
