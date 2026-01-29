@@ -35,6 +35,7 @@ export default function RootLayout() {
         <Stack.Screen name="legal/terms" options={{ presentation: 'modal' }} />
         <Stack.Screen name="legal/cgu" options={{ presentation: 'modal' }} />
         <Stack.Screen name="legal/contact" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="legal/about" options={{ presentation: 'modal' }} />
       </Stack>
     </>
   );
