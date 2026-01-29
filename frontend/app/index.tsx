@@ -168,4 +168,19 @@ const styles = StyleSheet.create({
     color: '#666',
     fontSize: 15,
   },
+  legalLinks: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  legalLinkText: {
+    fontSize: 12,
+    color: '#999',
+  },
+  legalSeparator: {
+    fontSize: 12,
+    color: '#CCC',
+    marginHorizontal: 8,
+  },
 });
