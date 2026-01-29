@@ -61,6 +61,21 @@ export default function WelcomeScreen() {
           >
             <Text style={styles.guestButtonText}>Continuer en tant qu'invité</Text>
           </TouchableOpacity>
+
+          {/* Legal Links */}
+          <View style={styles.legalLinks}>
+            <TouchableOpacity onPress={() => router.push('/legal/privacy')}>
+              <Text style={styles.legalLinkText}>Confidentialité</Text>
+            </TouchableOpacity>
+            <Text style={styles.legalSeparator}>•</Text>
+            <TouchableOpacity onPress={() => router.push('/legal/cgu')}>
+              <Text style={styles.legalLinkText}>CGU</Text>
+            </TouchableOpacity>
+            <Text style={styles.legalSeparator}>•</Text>
+            <TouchableOpacity onPress={() => router.push('/legal/contact')}>
+              <Text style={styles.legalLinkText}>Contact</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </SafeAreaView>
