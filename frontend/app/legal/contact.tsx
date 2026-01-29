@@ -75,7 +75,7 @@ export default function ContactScreen() {
             </View>
             <View style={styles.contactInfo}>
               <Text style={styles.contactLabel}>Téléphone</Text>
-              <Text style={styles.contactValue}>+33 1 23 45 67 89</Text>
+              <Text style={styles.contactValue}>+33 6 XX XX XX XX</Text>
             </View>
             <Ionicons name="chevron-forward" size={20} color="#CCC" />
           </TouchableOpacity>
