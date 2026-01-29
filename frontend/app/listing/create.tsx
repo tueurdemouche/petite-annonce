@@ -110,7 +110,7 @@ export default function CreateListingScreen() {
     try {
       const { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
-        Alert.alert('Permission refus\u00e9e', 'Autorisation de localisation requise');
+        Alert.alert('Permission refusée', 'Autorisation de localisation requise');
         return;
       }
 
@@ -128,7 +128,7 @@ export default function CreateListingScreen() {
       }
     } catch (error) {
       console.error('Error getting location:', error);
-      Alert.alert('Erreur', 'Impossible de r\u00e9cup\u00e9rer la localisation');
+      Alert.alert('Erreur', 'Impossible de récupérer la localisation');
     }
   };
 
@@ -138,7 +138,7 @@ export default function CreateListingScreen() {
       if (!hasExtraPhotos) {
         Alert.alert(
           'Limite atteinte',
-          'Vous avez atteint la limite de 5 photos gratuites. Souhaitez-vous acheter 5 photos suppl\u00e9mentaires pour 9,99\u20ac ?',
+          'Vous avez atteint la limite de 5 photos gratuites. Souhaitez-vous acheter 5 photos supplémentaires pour 9,99€ ?',
           [
             { text: 'Non', style: 'cancel' },
             { text: 'Oui', onPress: () => buyExtraPhotos() },
@@ -174,14 +174,14 @@ export default function CreateListingScreen() {
 
   const buyExtraPhotos = async () => {
     if (!edit) {
-      Alert.alert('Info', 'Cr\u00e9ez d\'abord votre annonce, puis vous pourrez acheter l\'option photos suppl\u00e9mentaires');
+      Alert.alert('Info', 'Créez d\'abord votre annonce, puis vous pourrez acheter l\'option photos supplémentaires');
       return;
     }
 
     try {
       await paymentsAPI.extraPhotos({ listing_id: edit, payment_method: 'stripe' });
       setHasExtraPhotos(true);
-      Alert.alert('Succ\u00e8s', 'Vous pouvez maintenant ajouter jusqu\'\u00e0 10 photos !');
+      Alert.alert('Succès', 'Vous pouvez maintenant ajouter jusqu\'à 10 photos !');
     } catch (error) {
       console.error('Error buying extra photos:', error);
     }
@@ -191,7 +191,7 @@ export default function CreateListingScreen() {
     switch (step) {
       case 1:
         if (!formData.category || !formData.sub_category) {
-          Alert.alert('Erreur', 'Veuillez s\u00e9lectionner une cat\u00e9gorie');
+          Alert.alert('Erreur', 'Veuillez sélectionner une catégorie');
           return false;
         }
         break;
@@ -257,10 +257,10 @@ export default function CreateListingScreen() {
 
       if (edit) {
         await listingsAPI.update(edit as string, data);
-        Alert.alert('Succ\u00e8s', 'Annonce mise \u00e0 jour ! Elle sera revue par notre \u00e9quipe.');
+        Alert.alert('Succès', 'Annonce mise à jour ! Elle sera revue par notre équipe.');
       } else {
         await listingsAPI.create(data);
-        Alert.alert('Succ\u00e8s', 'Annonce cr\u00e9\u00e9e ! Elle sera valid\u00e9e sous peu.');
+        Alert.alert('Succès', 'Annonce créée ! Elle sera validée sous peu.');
       }
       router.back();
     } catch (error: any) {
@@ -279,7 +279,7 @@ export default function CreateListingScreen() {
 
   const renderStep1 = () => (
     <View style={styles.stepContent}>
-      <Text style={styles.stepTitle}>Cat\u00e9gorie</Text>
+      <Text style={styles.stepTitle}>Catégorie</Text>
       <Text style={styles.stepSubtitle}>Choisissez le type d'annonce</Text>
 
       {Object.entries(CATEGORIES).map(([key, cat]) => (
@@ -309,7 +309,7 @@ export default function CreateListingScreen() {
 
       {currentCategory && (
         <View style={styles.subCategories}>
-          <Text style={styles.subCategoryLabel}>Sous-cat\u00e9gorie</Text>
+          <Text style={styles.subCategoryLabel}>Sous-catégorie</Text>
           {currentCategory.sub_categories.map((sub) => (
             <TouchableOpacity
               key={sub.id}
@@ -342,7 +342,7 @@ export default function CreateListingScreen() {
         <Text style={styles.label}>Titre *</Text>
         <TextInput
           style={styles.input}
-          placeholder="Ex: Peugeot 208 - Excellent \u00e9tat"
+          placeholder="Ex: Peugeot 208 - Excellent état"
           value={formData.title}
           onChangeText={(v) => updateField('title', v)}
           maxLength={100}
@@ -353,7 +353,7 @@ export default function CreateListingScreen() {
         <Text style={styles.label}>Description *</Text>
         <TextInput
           style={[styles.input, styles.textArea]}
-          placeholder="D\u00e9crivez votre bien en d\u00e9tail..."
+          placeholder="Décrivez votre bien en détail..."
           value={formData.description}
           onChangeText={(v) => updateField('description', v)}
           multiline
@@ -362,7 +362,7 @@ export default function CreateListingScreen() {
       </View>
 
       <View style={styles.inputGroup}>
-        <Text style={styles.label}>Prix (\u20ac) *</Text>
+        <Text style={styles.label}>Prix (€) *</Text>
         <TextInput
           style={styles.input}
           placeholder="Ex: 15000"
@@ -400,7 +400,7 @@ export default function CreateListingScreen() {
           </View>
 
           <View style={styles.inputGroup}>
-            <Text style={styles.label}>Mod\u00e8le</Text>
+            <Text style={styles.label}>Modèle</Text>
             <TextInput
               style={styles.input}
               placeholder="Ex: 208, Golf, Clio..."
@@ -411,7 +411,7 @@ export default function CreateListingScreen() {
 
           <View style={styles.row}>
             <View style={[styles.inputGroup, { flex: 1, marginRight: 8 }]}>
-              <Text style={styles.label}>Ann\u00e9e</Text>
+              <Text style={styles.label}>Année</Text>
               <TextInput
                 style={styles.input}
                 placeholder="2020"
@@ -421,7 +421,7 @@ export default function CreateListingScreen() {
               />
             </View>
             <View style={[styles.inputGroup, { flex: 1, marginLeft: 8 }]}>
-              <Text style={styles.label}>Kilom\u00e9trage</Text>
+              <Text style={styles.label}>Kilométrage</Text>
               <TextInput
                 style={styles.input}
                 placeholder="50000"
@@ -458,7 +458,7 @@ export default function CreateListingScreen() {
           </View>
 
           <View style={styles.inputGroup}>
-            <Text style={styles.label}>Bo\u00eete de vitesses</Text>
+            <Text style={styles.label}>Boîte de vitesses</Text>
             <View style={styles.chipsRow}>
               {TRANSMISSIONS.map((trans) => (
                 <TouchableOpacity
@@ -513,7 +513,7 @@ export default function CreateListingScreen() {
 
           <View style={styles.row}>
             <View style={[styles.inputGroup, { flex: 1, marginRight: 8 }]}>
-              <Text style={styles.label}>Surface (m\u00b2)</Text>
+              <Text style={styles.label}>Surface (m²)</Text>
               <TextInput
                 style={styles.input}
                 placeholder="80"
@@ -523,7 +523,7 @@ export default function CreateListingScreen() {
               />
             </View>
             <View style={[styles.inputGroup, { flex: 1, marginLeft: 8 }]}>
-              <Text style={styles.label}>Pi\u00e8ces</Text>
+              <Text style={styles.label}>Pièces</Text>
               <TextInput
                 style={styles.input}
                 placeholder="4"
@@ -536,7 +536,7 @@ export default function CreateListingScreen() {
 
           <View style={styles.row}>
             <View style={[styles.inputGroup, { flex: 1, marginRight: 8 }]}>
-              <Text style={styles.label}>\u00c9tage</Text>
+              <Text style={styles.label}>Étage</Text>
               <TextInput
                 style={styles.input}
                 placeholder="2"
@@ -546,7 +546,7 @@ export default function CreateListingScreen() {
               />
             </View>
             <View style={[styles.inputGroup, { flex: 1, marginLeft: 8 }]}>
-              <Text style={styles.label}>Total \u00e9tages</Text>
+              <Text style={styles.label}>Total étages</Text>
               <TextInput
                 style={styles.input}
                 placeholder="5"
@@ -558,7 +558,7 @@ export default function CreateListingScreen() {
           </View>
 
           <View style={styles.switchRow}>
-            <Text style={styles.switchLabel}>Acc\u00e8s handicap\u00e9</Text>
+            <Text style={styles.switchLabel}>Accès handicapé</Text>
             <TouchableOpacity
               style={[
                 styles.switchBtn,
@@ -596,11 +596,11 @@ export default function CreateListingScreen() {
       <Text style={styles.stepTitle}>Localisation</Text>
 
       <View style={styles.inputGroup}>
-        <Text style={styles.label}>Ville / R\u00e9gion *</Text>
+        <Text style={styles.label}>Ville / Région *</Text>
         <View style={styles.locationRow}>
           <TextInput
             style={[styles.input, { flex: 1 }]}
-            placeholder="Ex: Paris, \u00cele-de-France"
+            placeholder="Ex: Paris, Île-de-France"
             value={formData.location}
             onChangeText={(v) => updateField('location', v)}
           />
@@ -616,7 +616,7 @@ export default function CreateListingScreen() {
     <View style={styles.stepContent}>
       <Text style={styles.stepTitle}>Photos</Text>
       <Text style={styles.stepSubtitle}>
-        {hasExtraPhotos ? '10 photos maximum' : '5 photos gratuites (+ 5 pour 9,99\u20ac)'}
+        {hasExtraPhotos ? '10 photos maximum' : '5 photos gratuites (+ 5 pour 9,99€)'}
       </Text>
 
       <View style={styles.photosGrid}>
@@ -641,7 +641,7 @@ export default function CreateListingScreen() {
       {formData.photos.length >= 5 && !hasExtraPhotos && (
         <TouchableOpacity style={styles.extraPhotosBtn} onPress={buyExtraPhotos}>
           <Ionicons name="images" size={20} color="#FFF" />
-          <Text style={styles.extraPhotosBtnText}>+ 5 photos pour 9,99\u20ac</Text>
+          <Text style={styles.extraPhotosBtnText}>+ 5 photos pour 9,99€</Text>
         </TouchableOpacity>
       )}
     </View>
@@ -703,7 +703,7 @@ export default function CreateListingScreen() {
               style={styles.prevBtn}
               onPress={() => setStep(step - 1)}
             >
-              <Text style={styles.prevBtnText}>Pr\u00e9c\u00e9dent</Text>
+              <Text style={styles.prevBtnText}>Précédent</Text>
             </TouchableOpacity>
           )}
           <TouchableOpacity
@@ -715,7 +715,7 @@ export default function CreateListingScreen() {
               <ActivityIndicator color="#FFF" />
             ) : (
               <Text style={styles.nextBtnText}>
-                {step < 4 ? 'Suivant' : edit ? 'Mettre \u00e0 jour' : 'Publier'}
+                {step < 4 ? 'Suivant' : edit ? 'Mettre à jour' : 'Publier'}
               </Text>
             )}
           </TouchableOpacity>

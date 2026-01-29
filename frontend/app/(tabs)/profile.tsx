@@ -52,12 +52,12 @@ export default function ProfileScreen() {
 
   const handleLogout = () => {
     Alert.alert(
-      'D\u00e9connexion',
-      '\u00cates-vous s\u00fbr de vouloir vous d\u00e9connecter ?',
+      'Déconnexion',
+      'Êtes-vous sûr de vouloir vous déconnecter ?',
       [
         { text: 'Annuler', style: 'cancel' },
         {
-          text: 'D\u00e9connexion',
+          text: 'Déconnexion',
           style: 'destructive',
           onPress: () => {
             logout();
@@ -75,7 +75,7 @@ export default function ProfileScreen() {
           <Ionicons name="person-circle-outline" size={80} color="#DDD" />
           <Text style={styles.emptyTitle}>Mon Profil</Text>
           <Text style={styles.emptyText}>
-            Connectez-vous pour acc\u00e9der \u00e0 votre espace personnel
+            Connectez-vous pour accéder à votre espace personnel
           </Text>
           <TouchableOpacity
             style={styles.loginBtn}
@@ -87,7 +87,7 @@ export default function ProfileScreen() {
             style={styles.registerBtn}
             onPress={() => router.push('/auth/register')}
           >
-            <Text style={styles.registerBtnText}>Cr\u00e9er un compte</Text>
+            <Text style={styles.registerBtnText}>Créer un compte</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>
@@ -121,7 +121,7 @@ export default function ProfileScreen() {
             {user?.identity_verified ? (
               <View style={styles.verifiedBadge}>
                 <Ionicons name="shield-checkmark" size={14} color="#4CAF50" />
-                <Text style={styles.verifiedText}>Identit\u00e9 v\u00e9rifi\u00e9e</Text>
+                <Text style={styles.verifiedText}>Identité vérifiée</Text>
               </View>
             ) : (
               <TouchableOpacity
@@ -129,7 +129,7 @@ export default function ProfileScreen() {
                 onPress={() => router.push('/auth/verify')}
               >
                 <Ionicons name="shield-outline" size={14} color="#FF6B00" />
-                <Text style={styles.verifyBtnText}>V\u00e9rifier mon identit\u00e9</Text>
+                <Text style={styles.verifyBtnText}>Vérifier mon identité</Text>
               </TouchableOpacity>
             )}
             {user?.is_admin && (
@@ -218,7 +218,7 @@ export default function ProfileScreen() {
         {/* Logout */}
         <TouchableOpacity style={styles.logoutBtn} onPress={handleLogout}>
           <Ionicons name="log-out-outline" size={22} color="#FF4444" />
-          <Text style={styles.logoutText}>Se d\u00e9connecter</Text>
+          <Text style={styles.logoutText}>Se déconnecter</Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>

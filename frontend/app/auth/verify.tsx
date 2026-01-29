@@ -24,7 +24,7 @@ export default function VerifyIdentityScreen() {
   const pickImage = async (type: 'id' | 'selfie') => {
     const { status } = await ImagePicker.requestCameraPermissionsAsync();
     if (status !== 'granted') {
-      Alert.alert('Permission requise', 'Nous avons besoin d\'acc\u00e9der \u00e0 votre cam\u00e9ra');
+      Alert.alert('Permission requise', 'Nous avons besoin d\'accéder à votre caméra');
       return;
     }
 
@@ -49,7 +49,7 @@ export default function VerifyIdentityScreen() {
   const pickFromGallery = async (type: 'id' | 'selfie') => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (status !== 'granted') {
-      Alert.alert('Permission requise', 'Nous avons besoin d\'acc\u00e9der \u00e0 vos photos');
+      Alert.alert('Permission requise', 'Nous avons besoin d\'accéder à vos photos');
       return;
     }
 
@@ -92,8 +92,8 @@ export default function VerifyIdentityScreen() {
     const success = await verifyIdentity(idPhoto, selfiePhoto);
     if (success) {
       Alert.alert(
-        'Documents envoy\u00e9s',
-        'Votre demande de v\u00e9rification est en cours de traitement. Vous serez notifi\u00e9 une fois valid\u00e9e.',
+        'Documents envoyés',
+        'Votre demande de vérification est en cours de traitement. Vous serez notifié une fois validée.',
         [{ text: 'OK', onPress: () => router.back() }]
       );
     }
@@ -104,9 +104,9 @@ export default function VerifyIdentityScreen() {
       <SafeAreaView style={styles.container}>
         <View style={styles.verifiedContainer}>
           <Ionicons name="shield-checkmark" size={80} color="#4CAF50" />
-          <Text style={styles.verifiedTitle}>Identit\u00e9 v\u00e9rifi\u00e9e</Text>
+          <Text style={styles.verifiedTitle}>Identité vérifiée</Text>
           <Text style={styles.verifiedText}>
-            Votre identit\u00e9 a d\u00e9j\u00e0 \u00e9t\u00e9 v\u00e9rifi\u00e9e
+            Votre identité a déjà été vérifiée
           </Text>
           <TouchableOpacity
             style={styles.backBtn}
@@ -131,17 +131,17 @@ export default function VerifyIdentityScreen() {
 
         <View style={styles.header}>
           <Ionicons name="shield-checkmark-outline" size={60} color="#FF6B00" />
-          <Text style={styles.title}>V\u00e9rification d'identit\u00e9</Text>
+          <Text style={styles.title}>Vérification d'identité</Text>
           <Text style={styles.subtitle}>
-            Pour publier des annonces, nous devons v\u00e9rifier votre identit\u00e9 (18+ requis)
+            Pour publier des annonces, nous devons vérifier votre identité (18+ requis)
           </Text>
         </View>
 
         {/* ID Photo */}
         <View style={styles.photoSection}>
-          <Text style={styles.photoLabel}>1. Pi\u00e8ce d'identit\u00e9</Text>
+          <Text style={styles.photoLabel}>1. Pièce d'identité</Text>
           <Text style={styles.photoHint}>
-            Carte d'identit\u00e9, passeport ou permis de conduire
+            Carte d'identité, passeport ou permis de conduire
           </Text>
           <TouchableOpacity
             style={styles.photoBox}
@@ -190,12 +190,12 @@ export default function VerifyIdentityScreen() {
           {isLoading ? (
             <ActivityIndicator color="#FFF" />
           ) : (
-            <Text style={styles.submitBtnText}>Envoyer pour v\u00e9rification</Text>
+            <Text style={styles.submitBtnText}>Envoyer pour vérification</Text>
           )}
         </TouchableOpacity>
 
         <Text style={styles.privacyNote}>
-          Vos documents sont stock\u00e9s de mani\u00e8re s\u00e9curis\u00e9e et utilis\u00e9s uniquement pour la v\u00e9rification.
+          Vos documents sont stockés de manière sécurisée et utilisés uniquement pour la vérification.
         </Text>
       </ScrollView>
     </SafeAreaView>

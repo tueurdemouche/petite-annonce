@@ -122,7 +122,7 @@ export default function ListingDetailScreen() {
       'Choisissez une raison',
       [
         { text: 'Annuler', style: 'cancel' },
-        { text: 'Contenu inappropri\u00e9', onPress: () => submitReport('inappropriate') },
+        { text: 'Contenu inapproprié', onPress: () => submitReport('inappropriate') },
         { text: 'Arnaque/Fraude', onPress: () => submitReport('scam') },
         { text: 'Informations incorrectes', onPress: () => submitReport('incorrect_info') },
       ]
@@ -132,7 +132,7 @@ export default function ListingDetailScreen() {
   const submitReport = async (reason: string) => {
     try {
       await reportsAPI.create({ listing_id: id, reason });
-      Alert.alert('Merci', 'Votre signalement a \u00e9t\u00e9 envoy\u00e9');
+      Alert.alert('Merci', 'Votre signalement a été envoyé');
     } catch (error) {
       console.error('Error reporting:', error);
     }
@@ -145,7 +145,7 @@ export default function ListingDetailScreen() {
         duration_days: days,
         payment_method: 'stripe',
       });
-      Alert.alert('Succ\u00e8s', `Annonce boost\u00e9e pour ${days} jours !`);
+      Alert.alert('Succès', `Annonce boostée pour ${days} jours !`);
       setShowBoostModal(false);
       fetchListing();
     } catch (error) {
@@ -182,7 +182,7 @@ export default function ListingDetailScreen() {
       <SafeAreaView style={styles.container}>
         <View style={styles.errorContainer}>
           <Ionicons name="alert-circle-outline" size={64} color="#DDD" />
-          <Text style={styles.errorText}>Annonce non trouv\u00e9e</Text>
+          <Text style={styles.errorText}>Annonce non trouvée</Text>
           <TouchableOpacity style={styles.backBtn} onPress={() => router.back()}>
             <Text style={styles.backBtnText}>Retour</Text>
           </TouchableOpacity>
@@ -257,7 +257,7 @@ export default function ListingDetailScreen() {
             {listing.is_boosted && (
               <View style={styles.boostedBadge}>
                 <Ionicons name="star" size={14} color="#FFF" />
-                <Text style={styles.boostedText}>Sponsoris\u00e9</Text>
+                <Text style={styles.boostedText}>Sponsorisé</Text>
               </View>
             )}
           </View>
@@ -295,7 +295,7 @@ export default function ListingDetailScreen() {
             {/* Vehicle Details */}
             {listing.category === 'auto_moto' && (
               <View style={styles.detailsSection}>
-                <Text style={styles.sectionTitle}>Caract\u00e9ristiques</Text>
+                <Text style={styles.sectionTitle}>Caractéristiques</Text>
                 <View style={styles.detailsGrid}>
                   {listing.brand && (
                     <View style={styles.detailItem}>
@@ -305,19 +305,19 @@ export default function ListingDetailScreen() {
                   )}
                   {listing.model && (
                     <View style={styles.detailItem}>
-                      <Text style={styles.detailLabel}>Mod\u00e8le</Text>
+                      <Text style={styles.detailLabel}>Modèle</Text>
                       <Text style={styles.detailValue}>{listing.model}</Text>
                     </View>
                   )}
                   {listing.year && (
                     <View style={styles.detailItem}>
-                      <Text style={styles.detailLabel}>Ann\u00e9e</Text>
+                      <Text style={styles.detailLabel}>Année</Text>
                       <Text style={styles.detailValue}>{listing.year}</Text>
                     </View>
                   )}
                   {listing.mileage && (
                     <View style={styles.detailItem}>
-                      <Text style={styles.detailLabel}>Kilom\u00e9trage</Text>
+                      <Text style={styles.detailLabel}>Kilométrage</Text>
                       <Text style={styles.detailValue}>{listing.mileage.toLocaleString()} km</Text>
                     </View>
                   )}
@@ -329,7 +329,7 @@ export default function ListingDetailScreen() {
                   )}
                   {listing.transmission && (
                     <View style={styles.detailItem}>
-                      <Text style={styles.detailLabel}>Bo\u00eete</Text>
+                      <Text style={styles.detailLabel}>Boîte</Text>
                       <Text style={styles.detailValue}>
                         {listing.transmission === 'manual' ? 'Manuelle' : 'Automatique'}
                       </Text>
@@ -348,7 +348,7 @@ export default function ListingDetailScreen() {
             {/* Property Details */}
             {listing.category === 'immobilier' && (
               <View style={styles.detailsSection}>
-                <Text style={styles.sectionTitle}>Caract\u00e9ristiques</Text>
+                <Text style={styles.sectionTitle}>Caractéristiques</Text>
                 <View style={styles.detailsGrid}>
                   {listing.property_type && (
                     <View style={styles.detailItem}>
@@ -359,18 +359,18 @@ export default function ListingDetailScreen() {
                   {listing.surface_m2 && (
                     <View style={styles.detailItem}>
                       <Text style={styles.detailLabel}>Surface</Text>
-                      <Text style={styles.detailValue}>{listing.surface_m2} m\u00b2</Text>
+                      <Text style={styles.detailValue}>{listing.surface_m2} m²</Text>
                     </View>
                   )}
                   {listing.rooms && (
                     <View style={styles.detailItem}>
-                      <Text style={styles.detailLabel}>Pi\u00e8ces</Text>
+                      <Text style={styles.detailLabel}>Pièces</Text>
                       <Text style={styles.detailValue}>{listing.rooms}</Text>
                     </View>
                   )}
                   {listing.floor !== undefined && (
                     <View style={styles.detailItem}>
-                      <Text style={styles.detailLabel}>\u00c9tage</Text>
+                      <Text style={styles.detailLabel}>Étage</Text>
                       <Text style={styles.detailValue}>
                         {listing.floor}{listing.total_floors ? ` / ${listing.total_floors}` : ''}
                       </Text>
@@ -378,7 +378,7 @@ export default function ListingDetailScreen() {
                   )}
                   {listing.handicap_access !== undefined && (
                     <View style={styles.detailItem}>
-                      <Text style={styles.detailLabel}>Acc\u00e8s PMR</Text>
+                      <Text style={styles.detailLabel}>Accès PMR</Text>
                       <Text style={styles.detailValue}>
                         {listing.handicap_access ? 'Oui' : 'Non'}
                       </Text>
@@ -504,7 +504,7 @@ export default function ListingDetailScreen() {
             <View style={styles.modalContent}>
               <Text style={styles.modalTitle}>Booster votre annonce</Text>
               <Text style={styles.modalSubtitle}>
-                Votre annonce appara\u00eetra en t\u00eate des r\u00e9sultats
+                Votre annonce apparaîtra en tête des résultats
               </Text>
               
               <TouchableOpacity
@@ -513,9 +513,9 @@ export default function ListingDetailScreen() {
               >
                 <View>
                   <Text style={styles.boostOptionTitle}>7 jours</Text>
-                  <Text style={styles.boostOptionDesc}>Visibilit\u00e9 maximale pendant 1 semaine</Text>
+                  <Text style={styles.boostOptionDesc}>Visibilité maximale pendant 1 semaine</Text>
                 </View>
-                <Text style={styles.boostOptionPrice}>29,99 \u20ac</Text>
+                <Text style={styles.boostOptionPrice}>29,99 €</Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -524,9 +524,9 @@ export default function ListingDetailScreen() {
               >
                 <View>
                   <Text style={styles.boostOptionTitle}>14 jours</Text>
-                  <Text style={styles.boostOptionDesc}>Meilleur rapport qualit\u00e9/prix</Text>
+                  <Text style={styles.boostOptionDesc}>Meilleur rapport qualité/prix</Text>
                 </View>
-                <Text style={styles.boostOptionPrice}>49,99 \u20ac</Text>
+                <Text style={styles.boostOptionPrice}>49,99 €</Text>
               </TouchableOpacity>
 
               <TouchableOpacity

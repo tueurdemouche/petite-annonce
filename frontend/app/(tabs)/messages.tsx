@@ -129,7 +129,7 @@ export default function MessagesScreen() {
             <Ionicons name="chatbubbles-outline" size={64} color="#DDD" />
             <Text style={styles.emptyTitle}>Aucun message</Text>
             <Text style={styles.emptyText}>
-              Vos conversations appara\u00eetront ici
+              Vos conversations apparaîtront ici
             </Text>
           </View>
         }

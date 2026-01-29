@@ -62,7 +62,7 @@ export default function RegisterScreen() {
     }
 
     if (formData.password.length < 6) {
-      Alert.alert('Erreur', 'Le mot de passe doit contenir au moins 6 caract\u00e8res');
+      Alert.alert('Erreur', 'Le mot de passe doit contenir au moins 6 caractères');
       return;
     }
 

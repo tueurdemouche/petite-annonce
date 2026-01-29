@@ -56,7 +56,7 @@ export default function AdminScreen() {
     try {
       await adminAPI.approveListing(id);
       setPendingListings(pendingListings.filter((l) => l.id !== id));
-      Alert.alert('Succ\u00e8s', 'Annonce approuv\u00e9e');
+      Alert.alert('Succès', 'Annonce approuvée');
     } catch (error) {
       console.error('Error approving listing:', error);
     }
@@ -70,7 +70,7 @@ export default function AdminScreen() {
         try {
           await adminAPI.rejectListing(id, reason);
           setPendingListings(pendingListings.filter((l) => l.id !== id));
-          Alert.alert('Succ\u00e8s', 'Annonce rejet\u00e9e');
+          Alert.alert('Succès', 'Annonce rejetée');
         } catch (error) {
           console.error('Error rejecting listing:', error);
         }
@@ -83,7 +83,7 @@ export default function AdminScreen() {
     try {
       await adminAPI.verifyIdentity(userId, approved);
       setPendingVerifications(pendingVerifications.filter((v) => v.id !== userId));
-      Alert.alert('Succ\u00e8s', `Identit\u00e9 ${approved ? 'v\u00e9rifi\u00e9e' : 'rejet\u00e9e'}`);
+      Alert.alert('Succès', `Identité ${approved ? 'vérifiée' : 'rejetée'}`);
     } catch (error) {
       console.error('Error verifying identity:', error);
     }
@@ -93,7 +93,7 @@ export default function AdminScreen() {
     try {
       await adminAPI.resolveReport(reportId, action);
       setReports(reports.filter((r) => r.id !== reportId));
-      Alert.alert('Succ\u00e8s', 'Signalement trait\u00e9');
+      Alert.alert('Succès', 'Signalement traité');
     } catch (error) {
       console.error('Error resolving report:', error);
     }
@@ -155,7 +155,7 @@ export default function AdminScreen() {
           onPress={() => setActiveTab('verifications')}
         >
           <Text style={[styles.tabText, activeTab === 'verifications' && styles.tabTextActive]}>
-            V\u00e9rifications ({pendingVerifications.length})
+            Vérifications ({pendingVerifications.length})
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -183,7 +183,7 @@ export default function AdminScreen() {
                 )}
                 <View style={styles.listingInfo}>
                   <Text style={styles.listingTitle}>{listing.title}</Text>
-                  <Text style={styles.listingPrice}>{listing.price} \u20ac</Text>
+                  <Text style={styles.listingPrice}>{listing.price} €</Text>
                   <Text style={styles.listingMeta}>
                     {listing.user_name} \u2022 {listing.location}
                   </Text>
@@ -211,7 +211,7 @@ export default function AdminScreen() {
           pendingVerifications.length === 0 ? (
             <View style={styles.emptyState}>
               <Ionicons name="shield-checkmark-outline" size={64} color="#4CAF50" />
-              <Text style={styles.emptyText}>Aucune v\u00e9rification en attente</Text>
+              <Text style={styles.emptyText}>Aucune vérification en attente</Text>
             </View>
           ) : (
             pendingVerifications.map((user) => (
@@ -220,12 +220,12 @@ export default function AdminScreen() {
                   {user.first_name} {user.last_name}
                 </Text>
                 <Text style={styles.verificationEmail}>{user.email}</Text>
-                <Text style={styles.verificationBirth}>N\u00e9(e) le: {user.birth_date}</Text>
+                <Text style={styles.verificationBirth}>Né(e) le: {user.birth_date}</Text>
                 
                 <View style={styles.photosRow}>
                   {user.id_photo && (
                     <View style={styles.photoContainer}>
-                      <Text style={styles.photoLabel}>Pi\u00e8ce d'identit\u00e9</Text>
+                      <Text style={styles.photoLabel}>Pièce d'identité</Text>
                       <Image source={{ uri: user.id_photo }} style={styles.verificationPhoto} />
                     </View>
                   )}
@@ -273,7 +273,7 @@ export default function AdminScreen() {
                   <Text style={styles.reportDetails}>{report.details}</Text>
                 )}
                 <Text style={styles.reportMeta}>
-                  Signal\u00e9 par: {report.reporter_name}
+                  Signalé par: {report.reporter_name}
                 </Text>
 
                 <View style={styles.reportActions}>
