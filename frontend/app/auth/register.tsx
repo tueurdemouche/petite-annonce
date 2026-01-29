@@ -103,7 +103,7 @@ export default function RegisterScreen() {
           </TouchableOpacity>
 
           <View style={styles.header}>
-            <Text style={styles.title}>Cr\u00e9er un compte</Text>
+            <Text style={styles.title}>Créer un compte</Text>
             <Text style={styles.subtitle}>
               Inscrivez-vous pour publier vos annonces
             </Text>
@@ -121,7 +121,7 @@ export default function RegisterScreen() {
           <View style={styles.form}>
             <View style={styles.row}>
               <View style={[styles.inputGroup, { flex: 1, marginRight: 8 }]}>
-                <Text style={styles.label}>Pr\u00e9nom</Text>
+                <Text style={styles.label}>Prénom</Text>
                 <View style={styles.inputContainer}>
                   <TextInput
                     style={styles.input}
@@ -176,7 +176,7 @@ export default function RegisterScreen() {
             </View>
 
             <View style={styles.inputGroup}>
-              <Text style={styles.label}>T\u00e9l\u00e9phone</Text>
+              <Text style={styles.label}>Téléphone</Text>
               <View style={styles.inputContainer}>
                 <Ionicons name="call-outline" size={20} color="#999" />
                 <TextInput
@@ -195,7 +195,7 @@ export default function RegisterScreen() {
                 <Ionicons name="lock-closed-outline" size={20} color="#999" />
                 <TextInput
                   style={styles.input}
-                  placeholder="Min. 6 caract\u00e8res"
+                  placeholder="Min. 6 caractères"
                   value={formData.password}
                   onChangeText={(v) => updateField('password', v)}
                   secureTextEntry={!showPassword}
@@ -246,7 +246,7 @@ export default function RegisterScreen() {
               }}
             >
               <Text style={styles.loginLinkText}>
-                D\u00e9j\u00e0 un compte ?{' '}
+                Déjà un compte ?{' '}
                 <Text style={styles.loginLinkTextBold}>Se connecter</Text>
               </Text>
             </TouchableOpacity>
