@@ -55,7 +55,7 @@ export default function LoginScreen() {
           <View style={styles.header}>
             <Text style={styles.title}>Connexion</Text>
             <Text style={styles.subtitle}>
-              Connectez-vous pour acc\u00e9der \u00e0 votre compte
+              Connectez-vous pour accéder à votre compte
             </Text>
           </View>
 
