@@ -221,6 +221,15 @@ export default function ProfileScreen() {
           
           <TouchableOpacity
             style={styles.legalItem}
+            onPress={() => router.push('/legal/about')}
+          >
+            <Ionicons name="information-circle-outline" size={20} color="#666" />
+            <Text style={styles.legalItemText}>À Propos de Petite Annonce</Text>
+            <Ionicons name="chevron-forward" size={20} color="#CCC" />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.legalItem}
             onPress={() => router.push('/legal/privacy')}
           >
             <Ionicons name="shield-checkmark-outline" size={20} color="#666" />
