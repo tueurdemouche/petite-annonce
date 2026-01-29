@@ -1,0 +1,43 @@
+{
+  "cli": {
+    "version": ">= 5.0.0"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "ios": {
+        "bundleIdentifier": "com.petiteannonce.app"
+      },
+      "android": {
+        "package": "com.petiteannonce.app"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "ios": {
+        "bundleIdentifier": "com.petiteannonce.app"
+      },
+      "android": {
+        "package": "com.petiteannonce.app"
+      }
+    },
+    "production": {
+      "ios": {
+        "bundleIdentifier": "com.petiteannonce.app"
+      },
+      "android": {
+        "package": "com.petiteannonce.app"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "appleId": "victor-marouard@hotmail.com",
+        "ascAppId": "com.petiteannonce.app",
+        "appleTeamId": "ZFL8HP8H4Y"
+      }
+    }
+  }
+}
