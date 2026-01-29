@@ -64,12 +64,12 @@ export default function WelcomeScreen() {
 
           {/* Legal Links */}
           <View style={styles.legalLinks}>
-            <TouchableOpacity onPress={() => router.push('/legal/privacy')}>
-              <Text style={styles.legalLinkText}>Confidentialité</Text>
+            <TouchableOpacity onPress={() => router.push('/legal/about')}>
+              <Text style={styles.legalLinkText}>À propos</Text>
             </TouchableOpacity>
             <Text style={styles.legalSeparator}>•</Text>
-            <TouchableOpacity onPress={() => router.push('/legal/cgu')}>
-              <Text style={styles.legalLinkText}>CGU</Text>
+            <TouchableOpacity onPress={() => router.push('/legal/privacy')}>
+              <Text style={styles.legalLinkText}>Confidentialité</Text>
             </TouchableOpacity>
             <Text style={styles.legalSeparator}>•</Text>
             <TouchableOpacity onPress={() => router.push('/legal/contact')}>
