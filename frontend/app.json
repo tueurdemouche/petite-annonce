@@ -73,14 +73,6 @@
 
     "experiments": {
       "typedRoutes": true
-    },
-
-    "extra": {
-      "eas": {
-        "projectId": "REMPLACE_PAR_TON_VRAI_PROJECT_ID_EAS"
-      }
-    },
-
-    "owner": "petiteannonce"
+    }
   }
 }
