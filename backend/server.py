@@ -274,6 +274,87 @@ def user_to_response(user: dict) -> UserResponse:
         identity_verified=user.get("identity_verified", False)
     )
 
+async def send_verification_email(user_data: dict, verification_id: str):
+    """Send email notification to admin for identity verification"""
+    try:
+        msg = MIMEMultipart()
+        msg['From'] = SMTP_USER if SMTP_USER else 'noreply@petiteannonce.fr'
+        msg['To'] = ADMIN_EMAIL
+        msg['Subject'] = f"🔔 Nouvelle demande de vérification - {user_data['first_name']} {user_data['last_name']}"
+        
+        html_body = f"""
+        <html>
+        <head>
+            <style>
+                body {{ font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px; }}
+                .container {{ background: white; padding: 30px; border-radius: 10px; max-width: 600px; margin: 0 auto; }}
+                h1 {{ color: #2563EB; }}
+                .info-box {{ background: #eff6ff; padding: 15px; border-radius: 8px; margin: 15px 0; }}
+                .label {{ font-weight: bold; color: #1e40af; }}
+                .btn {{ display: inline-block; background: #2563EB; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; margin: 10px 5px; }}
+                .btn-reject {{ background: #dc2626; }}
+                img {{ max-width: 100%; border-radius: 8px; margin: 10px 0; }}
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>🔔 Nouvelle demande de vérification d'identité</h1>
+                
+                <div class="info-box">
+                    <p><span class="label">Nom:</span> {user_data['first_name']} {user_data['last_name']}</p>
+                    <p><span class="label">Email:</span> {user_data['email']}</p>
+                    <p><span class="label">Téléphone:</span> {user_data['phone']}</p>
+                    <p><span class="label">Date de naissance:</span> {user_data['birth_date']}</p>
+                    <p><span class="label">ID Utilisateur:</span> {user_data['user_id']}</p>
+                    <p><span class="label">ID Vérification:</span> {verification_id}</p>
+                </div>
+                
+                <h2>📷 Documents soumis:</h2>
+                <p><strong>1. Carte d'identité (Recto)</strong></p>
+                <p><strong>2. Carte d'identité (Verso)</strong></p>
+                <p><strong>3. Photo du visage (Selfie)</strong></p>
+                
+                <p style="color: #666; font-size: 14px;">
+                    Les images sont stockées dans la base de données pour des raisons de sécurité.
+                    Connectez-vous au panneau d'administration pour les visualiser et valider/rejeter cette demande.
+                </p>
+                
+                <hr style="margin: 20px 0;">
+                <p style="color: #888; font-size: 12px;">
+                    Cet email a été envoyé automatiquement par Petite Annonce FR.
+                    Date de soumission: {datetime.utcnow().strftime('%d/%m/%Y à %H:%M')}
+                </p>
+            </div>
+        </body>
+        </html>
+        """
+        
+        msg.attach(MIMEText(html_body, 'html'))
+        
+        # Try to send email if SMTP is configured
+        if SMTP_USER and SMTP_PASSWORD:
+            with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+                server.starttls()
+                server.login(SMTP_USER, SMTP_PASSWORD)
+                server.send_message(msg)
+                logger.info(f"Verification email sent to {ADMIN_EMAIL}")
+        else:
+            # Log the verification request if email not configured
+            logger.info(f"Email notification (SMTP not configured): New verification request from {user_data['email']}")
+            # Store notification in database for admin panel
+            await db.notifications.insert_one({
+                "type": "identity_verification",
+                "user_id": user_data['user_id'],
+                "user_name": f"{user_data['first_name']} {user_data['last_name']}",
+                "user_email": user_data['email'],
+                "verification_id": verification_id,
+                "read": False,
+                "created_at": datetime.utcnow()
+            })
+            
+    except Exception as e:
+        logger.error(f"Failed to send verification email: {str(e)}")
+
 # ==================== AUTH ROUTES ====================
 
 @api_router.post("/auth/register", response_model=TokenResponse)
