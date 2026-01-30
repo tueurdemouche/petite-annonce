@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Télécharger - Petite Annonce FR</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #2563EB 0%, #1d4ed8 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 500px;
+        }
+        .logo { font-size: 4em; margin-bottom: 20px; }
+        h1 { color: #2563EB; margin-bottom: 10px; }
+        p { color: #666; margin-bottom: 30px; }
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #2563EB 0%, #1d4ed8 100%);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+        }
+        .file-info {
+            background: #f0f9ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .file-info h3 { color: #2563EB; margin-bottom: 10px; }
+        .file-info ul { list-style: none; text-align: left; }
+        .file-info li { padding: 5px 0; color: #555; }
+        .file-info li::before { content: "✓ "; color: #22c55e; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">📦</div>
+        <h1>Téléchargements</h1>
+        <p>Fichiers pour App Store Connect</p>
+        
+        <div class="file-info">
+            <h3>📱 Captures d'écran incluses</h3>
+            <ul>
+                <li>iPhone 6.5" - Écran d'accueil (1284x2778)</li>
+                <li>iPhone 6.5" - Page principale (1284x2778)</li>
+                <li>iPhone 6.5" - Recherche (1284x2778)</li>
+                <li>iPad 13" - Écran d'accueil (2048x2732)</li>
+                <li>iPad 13" - Page principale (2048x2732)</li>
+                <li>iPad 13" - Recherche (2048x2732)</li>
+            </ul>
+        </div>
+
+        <a href="/screenshots_appstore.zip" download="screenshots_appstore.zip" class="download-btn">
+            📥 Télécharger Screenshots (ZIP)
+        </a>
+        
+        <div class="file-info" style="margin-top: 30px;">
+            <h3>📄 Pages légales incluses</h3>
+            <ul>
+                <li>Politique de confidentialité</li>
+                <li>Page de support</li>
+            </ul>
+        </div>
+
+        <a href="/legal/" class="download-btn" style="background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);">
+            🔗 Voir les pages légales
+        </a>
+    </div>
+</body>
+</html>
