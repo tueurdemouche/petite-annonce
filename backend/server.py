@@ -210,7 +210,7 @@ class ConversationResponse(BaseModel):
 
 class BoostRequest(BaseModel):
     listing_id: str
-    duration_days: int  # 7 or 14
+    duration_days: int  # 14 or 30
     payment_method: str  # "stripe", "paypal", "crypto"
 
 class ExtraPhotosRequest(BaseModel):
