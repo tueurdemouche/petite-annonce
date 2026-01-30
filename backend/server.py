@@ -88,8 +88,9 @@ class TokenResponse(BaseModel):
     user: UserResponse
 
 class IdentityVerification(BaseModel):
-    id_photo: str  # Base64
-    selfie_photo: str  # Base64
+    id_photo_front: str  # Base64 - Recto carte d'identité
+    id_photo_back: str   # Base64 - Verso carte d'identité
+    selfie_photo: str    # Base64 - Photo du visage
 
 class ListingCreate(BaseModel):
     title: str
