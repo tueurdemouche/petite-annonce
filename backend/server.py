@@ -1004,6 +1004,9 @@ async def purchase_extra_photos(request: ExtraPhotosRequest, user = Depends(get_
     if listing.get("has_extra_photos", False):
         raise HTTPException(status_code=400, detail="Option déjà achetée pour cette annonce")
     
+    # New price: 2.99€ for 5 extra photos
+    price = PRICING["extra_photos"]
+    
     # Simulate payment
     payment_id = str(uuid.uuid4())
     
@@ -1012,7 +1015,7 @@ async def purchase_extra_photos(request: ExtraPhotosRequest, user = Depends(get_
         "user_id": str(user["_id"]),
         "listing_id": request.listing_id,
         "type": "extra_photos",
-        "amount": 9.99,
+        "amount": price,
         "method": request.payment_method,
         "status": "completed",
         "payment_id": payment_id,
@@ -1028,7 +1031,7 @@ async def purchase_extra_photos(request: ExtraPhotosRequest, user = Depends(get_
     return {
         "message": "Option photos supplémentaires activée (5 photos de plus)",
         "payment_id": payment_id,
-        "amount": 9.99
+        "amount": price
     }
 
 @api_router.get("/payments/crypto-wallets")
