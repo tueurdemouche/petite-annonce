@@ -12,6 +12,7 @@ export default function LegalLayout() {
       <Stack.Screen name="terms" />
       <Stack.Screen name="cgu" />
       <Stack.Screen name="contact" />
+      <Stack.Screen name="about" />
     </Stack>
   );
 }
