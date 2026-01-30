@@ -8,7 +8,6 @@
     "scheme": "pa-classified-2025",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.petiteannonce.app",
@@ -20,7 +19,6 @@
         "ITSAppUsesNonExemptEncryption": false
       }
     },
-
     "android": {
       "package": "com.petiteannonce.ios",
       "versionCode": 1,
@@ -37,13 +35,11 @@
         "ACCESS_COARSE_LOCATION"
       ]
     },
-
     "web": {
       "bundler": "metro",
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
-
     "plugins": [
       "expo-router",
       "expo-secure-store",
@@ -68,9 +64,10 @@
           "resizeMode": "contain",
           "backgroundColor": "#2563EB"
         }
-      ]
+      ],
+      "expo-font",
+      "expo-web-browser"
     ],
-
     "experiments": {
       "typedRoutes": true
     }
