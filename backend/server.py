@@ -952,10 +952,11 @@ async def boost_listing(request: BoostRequest, user = Depends(get_current_user))
     if listing["user_id"] != str(user["_id"]):
         raise HTTPException(status_code=403, detail="Non autorisé")
     
-    if request.duration_days not in [7, 14]:
-        raise HTTPException(status_code=400, detail="Durée invalide (7 ou 14 jours)")
+    if request.duration_days not in [14, 30]:
+        raise HTTPException(status_code=400, detail="Durée invalide (14 ou 30 jours)")
     
-    price = 29.99 if request.duration_days == 7 else 49.99
+    # New pricing: 14 days = 9.99€, 30 days = 19.99€
+    price = PRICING["boost_14_days"] if request.duration_days == 14 else PRICING["boost_30_days"]
     
     # Simulate payment
     payment_id = str(uuid.uuid4())
@@ -966,6 +967,7 @@ async def boost_listing(request: BoostRequest, user = Depends(get_current_user))
         "listing_id": request.listing_id,
         "type": "boost",
         "amount": price,
+        "duration_days": request.duration_days,
         "method": request.payment_method,
         "status": "completed",  # MVP: auto-complete
         "payment_id": payment_id,
