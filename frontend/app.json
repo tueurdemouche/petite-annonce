@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "petiteannonce-app",
+    "scheme": "pa-classified-2025",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
 
