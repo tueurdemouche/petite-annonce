@@ -419,18 +419,53 @@ async def get_me(user = Depends(get_current_user)):
 
 @api_router.post("/auth/verify-identity")
 async def verify_identity(verification: IdentityVerification, user = Depends(get_current_user)):
+    # Generate unique verification ID
+    verification_id = str(uuid.uuid4())
+    
+    # Update user with identity documents
     await db.users.update_one(
         {"_id": user["_id"]},
         {
             "$set": {
-                "id_photo": verification.id_photo,
+                "id_photo_front": verification.id_photo_front,
+                "id_photo_back": verification.id_photo_back,
                 "selfie_photo": verification.selfie_photo,
                 "identity_verification_date": datetime.utcnow(),
+                "identity_verification_id": verification_id,
+                "identity_verification_status": "pending",
                 "identity_verified": False  # Will be verified by admin
             }
         }
     )
-    return {"message": "Documents soumis pour vérification"}
+    
+    # Store verification request
+    await db.verifications.insert_one({
+        "verification_id": verification_id,
+        "user_id": str(user["_id"]),
+        "user_email": user["email"],
+        "user_name": f"{user['first_name']} {user['last_name']}",
+        "id_photo_front": verification.id_photo_front,
+        "id_photo_back": verification.id_photo_back,
+        "selfie_photo": verification.selfie_photo,
+        "status": "pending",
+        "created_at": datetime.utcnow()
+    })
+    
+    # Send email notification to admin
+    await send_verification_email({
+        "user_id": str(user["_id"]),
+        "email": user["email"],
+        "phone": user["phone"],
+        "first_name": user["first_name"],
+        "last_name": user["last_name"],
+        "birth_date": user["birth_date"]
+    }, verification_id)
+    
+    return {
+        "message": "Documents soumis pour vérification. Vous recevrez une notification une fois la vérification effectuée.",
+        "verification_id": verification_id,
+        "status": "pending"
+    }
 
 # ==================== LISTINGS ROUTES ====================
 
