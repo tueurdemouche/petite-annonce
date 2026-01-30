@@ -1043,6 +1043,30 @@ async def get_crypto_wallets():
         "usdt": "0x71C7656EC7ab88b098defB751B7401B5f6d8976F"
     }
 
+@api_router.get("/payments/pricing")
+async def get_pricing():
+    """Get current pricing for all paid features"""
+    return {
+        "extra_photos": {
+            "price": PRICING["extra_photos"],
+            "currency": "EUR",
+            "description": "5 photos supplémentaires",
+            "total_photos": 10
+        },
+        "boost_14_days": {
+            "price": PRICING["boost_14_days"],
+            "currency": "EUR",
+            "duration_days": 14,
+            "description": "Boost 14 jours - Votre annonce en tête de liste"
+        },
+        "boost_30_days": {
+            "price": PRICING["boost_30_days"],
+            "currency": "EUR",
+            "duration_days": 30,
+            "description": "Boost 30 jours - Visibilité maximale"
+        }
+    }
+
 # ==================== REPORTS ROUTES ====================
 
 @api_router.post("/reports")
