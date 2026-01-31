@@ -2,13 +2,137 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <title>Petite Annonce - Pages légales</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Petite Annonce – Pages légales</title>
+  <meta name="description" content="Pages légales de l'application Petite Annonce : politique de confidentialité et gestion des cookies.">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: #f9fafb;
+      color: #111827;
+      margin: 0;
+      padding: 24px;
+      line-height: 1.6;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 28px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    h1 {
+      margin: 0 0 6px;
+      color: #1f2937;
+    }
+    .subtitle {
+      margin: 0 0 18px;
+      color: #6b7280;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .card {
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 18px;
+      background: #ffffff;
+    }
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      color: #1f2937;
+    }
+    .card p {
+      margin: 0 0 14px;
+      color: #4b5563;
+      font-size: 0.98rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: #2563EB;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .btn:hover {
+      opacity: 0.92;
+    }
+    .why {
+      margin-top: 28px;
+      padding: 18px;
+      border-radius: 10px;
+      background: #f3f4f6;
+      border-left: 4px solid #2563EB;
+    }
+    .why h3 {
+      margin: 0 0 10px;
+      color: #1f2937;
+    }
+    ul {
+      margin: 8px 0 0 20px;
+    }
+    footer {
+      margin-top: 22px;
+      font-size: 0.9em;
+      color: #6b7280;
+      text-align: center;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Petite Annonce</h1>
-  <p>Pages légales :</p>
-  <ul>
-    <li><a href="./privacy.html">Politique de confidentialité</a></li>
-  </ul>
+  <main>
+    <h1>Petite Annonce</h1>
+    <p class="subtitle">Pages légales de l’application</p>
+
+    <div class="cards">
+      <div class="card">
+        <h2>Politique de confidentialité</h2>
+        <p>
+          Découvrez quelles données peuvent être collectées, comment elles sont utilisées
+          et quels sont vos droits.
+        </p>
+        <a class="btn" href="./confidentialite.html">Consulter la confidentialité</a>
+      </div>
+
+      <div class="card">
+        <h2>Gestion des cookies</h2>
+        <p>
+          Comprenez l’utilisation des cookies et technologies similaires,
+          et comment gérer vos préférences.
+        </p>
+        <a class="btn" href="./cookies.html">Consulter la page cookies</a>
+      </div>
+    </div>
+
+    <div class="why">
+      <h3>Pourquoi accepter les cookies et technologies similaires ?</h3>
+      <p>
+        Dans une application mobile, ces technologies sont principalement utilisées
+        pour garantir le bon fonctionnement et la sécurité du service. Les accepter permet notamment :
+      </p>
+      <ul>
+        <li><strong>Sécurité</strong> : protéger votre compte et prévenir les abus.</li>
+        <li><strong>Fonctionnalités</strong> : mémoriser vos préférences et filtres.</li>
+        <li><strong>Performance</strong> : améliorer la stabilité et corriger des bugs.</li>
+        <li><strong>Statistiques</strong> (si activées) : améliorer l’expérience utilisateur.</li>
+      </ul>
+      <p style="margin-top:10px;">
+        Vous pouvez modifier ou retirer vos autorisations à tout moment
+        depuis les réglages de votre appareil ou via la page dédiée aux cookies.
+      </p>
+    </div>
+
+    <footer>
+      © 2026 – Petite Annonce
+    </footer>
+  </main>
 </body>
 </html>
