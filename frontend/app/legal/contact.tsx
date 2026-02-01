@@ -61,7 +61,7 @@ export default function ContactScreen() {
             </View>
             <View style={styles.contactInfo}>
               <Text style={styles.contactLabel}>Email</Text>
-              <Text style={styles.contactValue}>victor-marouard@hotmail.com</Text>
+              <Text style={styles.contactValue}>contact@lapetiteannonce.fr</Text>
             </View>
             <Ionicons name="chevron-forward" size={20} color="#CCC" />
           </TouchableOpacity>
