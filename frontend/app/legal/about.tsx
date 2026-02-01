@@ -178,7 +178,7 @@ export default function AboutScreen() {
             onPress={() => Linking.openURL('mailto:contact@lapetiteannonce.fr')}
           >
             <Ionicons name="mail" size={22} color="#FFF" />
-            <Text style={styles.contactBtnText}>victor-marouard@hotmail.com</Text>
+            <Text style={styles.contactBtnText}>contact@lapetiteannonce.fr</Text>
           </TouchableOpacity>
 
           <TouchableOpacity 
