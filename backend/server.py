@@ -34,8 +34,8 @@ ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_DAYS = 30
 
 # Email Settings for verification notifications
-ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'victor-marouard@hotmail.com')
-SMTP_SERVER = os.environ.get('SMTP_SERVER', 'smtp.gmail.com')
+ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'contact@lapetiteannonce.fr')
+SMTP_SERVER = os.environ.get('SMTP_SERVER', 'smtp.ionos.fr')
 SMTP_PORT = int(os.environ.get('SMTP_PORT', '587'))
 SMTP_USER = os.environ.get('SMTP_USER', '')
 SMTP_PASSWORD = os.environ.get('SMTP_PASSWORD', '')
