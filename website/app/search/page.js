@@ -1,12 +1,12 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import ListingCard from '../../components/ListingCard'
 import { FaFilter, FaTimes } from 'react-icons/fa'
 
-export default function SearchPage() {
+function SearchContent() {
   const searchParams = useSearchParams()
   const [listings, setListings] = useState([])
   const [loading, setLoading] = useState(true)
