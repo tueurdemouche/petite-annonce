@@ -87,7 +87,7 @@ export default function PrivacyPolicyScreen() {
             • Supprimer votre compte et vos données{"\n"}
             • Vous opposer au traitement de vos données{"\n"}
             • Exporter vos données (portabilité){"\n\n"}
-            Pour exercer ces droits, contactez-nous à : victor-marouard@hotmail.com
+            Pour exercer ces droits, contactez-nous à : contact@lapetiteannonce.fr
           </Text>
         </View>
 
