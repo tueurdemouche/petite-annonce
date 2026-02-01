@@ -1,0 +1,130 @@
+diff --git a/frontend/app/legal/about.tsx b/frontend/app/legal/about.tsx
+index ca18379..bb82f9b 100644
+--- a/frontend/app/legal/about.tsx
++++ b/frontend/app/legal/about.tsx
+@@ -175,10 +175,10 @@ export default function AboutScreen() {
+           
+           <TouchableOpacity 
+             style={styles.contactBtn}
+-            onPress={() => Linking.openURL('mailto:victor-marouard@hotmail.com')}
++            onPress={() => Linking.openURL('mailto:contact@lapetiteannonce.fr')}
+           >
+             <Ionicons name="mail" size={22} color="#FFF" />
+-            <Text style={styles.contactBtnText}>victor-marouard@hotmail.com</Text>
++            <Text style={styles.contactBtnText}>contact@lapetiteannonce.fr</Text>
+           </TouchableOpacity>
+ 
+           <TouchableOpacity 
+diff --git a/frontend/app/legal/cgu.tsx b/frontend/app/legal/cgu.tsx
+index 9a92011..4b65dd7 100644
+--- a/frontend/app/legal/cgu.tsx
++++ b/frontend/app/legal/cgu.tsx
+@@ -174,7 +174,7 @@ export default function CGUScreen() {
+           <Text style={styles.sectionTitle}>Article 15 - Contact</Text>
+           <Text style={styles.text}>
+             Pour toute question concernant les CGU :{"\n\n"}
+-            Email : victor-marouard@hotmail.com{"\n"}
++            Email : contact@lapetiteannonce.fr{"\n"}
+             Petite Annonce SAS{"\n"}
+             France
+           </Text>
+diff --git a/frontend/app/legal/contact.tsx b/frontend/app/legal/contact.tsx
+index 3eb5e8c..55c7b4f 100644
+--- a/frontend/app/legal/contact.tsx
++++ b/frontend/app/legal/contact.tsx
+@@ -27,7 +27,7 @@ export default function ContactScreen() {
+     }
+ 
+     // Open email client
+-    const mailtoUrl = `mailto:victor-marouard@hotmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\n${message}`)}`;
++    const mailtoUrl = `mailto:contact@lapetiteannonce.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\n${message}`)}`;
+     Linking.openURL(mailtoUrl);
+ 
+     Alert.alert('Message envoyé', 'Nous vous répondrons dans les plus brefs délais.');
+@@ -54,14 +54,14 @@ export default function ContactScreen() {
+           
+           <TouchableOpacity 
+             style={styles.contactCard}
+-            onPress={() => Linking.openURL('mailto:victor-marouard@hotmail.com')}
++            onPress={() => Linking.openURL('mailto:contact@lapetiteannonce.fr')}
+           >
+             <View style={styles.contactIconContainer}>
+               <Ionicons name="mail" size={24} color="#2563EB" />
+             </View>
+             <View style={styles.contactInfo}>
+               <Text style={styles.contactLabel}>Email</Text>
+-              <Text style={styles.contactValue}>victor-marouard@hotmail.com</Text>
++              <Text style={styles.contactValue}>contact@lapetiteannonce.fr</Text>
+             </View>
+             <Ionicons name="chevron-forward" size={20} color="#CCC" />
+           </TouchableOpacity>
+diff --git a/frontend/app/legal/privacy.tsx b/frontend/app/legal/privacy.tsx
+index 4ec0fad..82d0e22 100644
+--- a/frontend/app/legal/privacy.tsx
++++ b/frontend/app/legal/privacy.tsx
+@@ -87,7 +87,7 @@ export default function PrivacyPolicyScreen() {
+             • Supprimer votre compte et vos données{"\n"}
+             • Vous opposer au traitement de vos données{"\n"}
+             • Exporter vos données (portabilité){"\n\n"}
+-            Pour exercer ces droits, contactez-nous à : victor-marouard@hotmail.com
++            Pour exercer ces droits, contactez-nous à : contact@lapetiteannonce.fr
+           </Text>
+         </View>
+ 
+@@ -116,7 +116,7 @@ export default function PrivacyPolicyScreen() {
+           <Text style={styles.sectionTitle}>10. Contact</Text>
+           <Text style={styles.text}>
+             Pour toute question concernant cette politique de confidentialité :{"\n\n"}
+-            Email : victor-marouard@hotmail.com{"\n"}
++            Email : contact@lapetiteannonce.fr{"\n"}
+             Adresse : Petite Annonce SAS, France
+           </Text>
+         </View>
+diff --git a/frontend/app/legal/terms.tsx b/frontend/app/legal/terms.tsx
+index 98e9a7e..f87fc85 100644
+--- a/frontend/app/legal/terms.tsx
++++ b/frontend/app/legal/terms.tsx
+@@ -120,7 +120,7 @@ export default function TermsOfSaleScreen() {
+           <Text style={styles.sectionTitle}>Article 11 - Contact</Text>
+           <Text style={styles.text}>
+             Pour toute question relative aux CGV :{"\n\n"}
+-            Email : victor-marouard@hotmail.com{"\n"}
++            Email : contact@lapetiteannonce.fr{"\n"}
+             Petite Annonce SAS{"\n"}
+             France
+           </Text>
+diff --git a/frontend/public/legal/privacy.html b/frontend/public/legal/privacy.html
+index ece3a7f..00bd116 100644
+--- a/frontend/public/legal/privacy.html
++++ b/frontend/public/legal/privacy.html
+@@ -183,7 +183,7 @@
+             <div class="contact-box">
+                 <h3>📧 Contact</h3>
+                 <p>Pour toute question concernant vos données personnelles :</p>
+-                <p><a href="mailto:victor-marouard@hotmail.com">victor-marouard@hotmail.com</a></p>
++                <p><a href="mailto:contact@lapetiteannonce.fr">contact@lapetiteannonce.fr</a></p>
+             </div>
+         </div>
+         <div class="footer">
+diff --git a/frontend/public/legal/support.html b/frontend/public/legal/support.html
+index 076732b..8e8405e 100644
+--- a/frontend/public/legal/support.html
++++ b/frontend/public/legal/support.html
+@@ -151,7 +151,7 @@
+             <div class="contact-card">
+                 <h3>📧 Contactez-nous</h3>
+                 <p>Notre équipe est à votre disposition pour répondre à toutes vos questions</p>
+-                <a href="mailto:victor-marouard@hotmail.com">✉️ victor-marouard@hotmail.com</a>
++                <a href="mailto:contact@lapetiteannonce.fr">✉️ contact@lapetiteannonce.fr</a>
+             </div>
+ 
+             <div class="response-time">
+@@ -226,7 +226,7 @@
+             <div class="contact-card" style="margin-top: 40px;">
+                 <h3>🆘 Besoin d'aide urgente ?</h3>
+                 <p>Pour toute question ou problème, n'hésitez pas à nous contacter</p>
+-                <a href="mailto:victor-marouard@hotmail.com">Envoyer un email</a>
++                <a href="mailto:contact@lapetiteannonce.fr">Envoyer un email</a>
+             </div>
+         </div>
+         <div class="footer">
