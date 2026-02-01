@@ -175,7 +175,7 @@ export default function AboutScreen() {
           
           <TouchableOpacity 
             style={styles.contactBtn}
-            onPress={() => Linking.openURL('mailto:victor-marouard@hotmail.com')}
+            onPress={() => Linking.openURL('mailto:contact@lapetiteannonce.fr')}
           >
             <Ionicons name="mail" size={22} color="#FFF" />
             <Text style={styles.contactBtnText}>victor-marouard@hotmail.com</Text>

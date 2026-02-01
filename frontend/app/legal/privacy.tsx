@@ -116,7 +116,7 @@ export default function PrivacyPolicyScreen() {
           <Text style={styles.sectionTitle}>10. Contact</Text>
           <Text style={styles.text}>
             Pour toute question concernant cette politique de confidentialité :{"\n\n"}
-            Email : victor-marouard@hotmail.com{"\n"}
+            Email : contact@lapetiteannonce.fr{"\n"}
             Adresse : Petite Annonce SAS, France
           </Text>
         </View>
