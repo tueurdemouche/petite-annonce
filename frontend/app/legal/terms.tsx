@@ -120,7 +120,7 @@ export default function TermsOfSaleScreen() {
           <Text style={styles.sectionTitle}>Article 11 - Contact</Text>
           <Text style={styles.text}>
             Pour toute question relative aux CGV :{"\n\n"}
-            Email : victor-marouard@hotmail.com{"\n"}
+            Email : contact@lapetiteannonce.fr{"\n"}
             Petite Annonce SAS{"\n"}
             France
           </Text>

@@ -174,7 +174,7 @@ export default function CGUScreen() {
           <Text style={styles.sectionTitle}>Article 15 - Contact</Text>
           <Text style={styles.text}>
             Pour toute question concernant les CGU :{"\n\n"}
-            Email : victor-marouard@hotmail.com{"\n"}
+            Email : contact@lapetiteannonce.fr{"\n"}
             Petite Annonce SAS{"\n"}
             France
           </Text>
