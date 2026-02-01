@@ -244,3 +244,11 @@ function SearchContent() {
     </>
   )
 }
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<div style={{ padding: '40px', textAlign: 'center' }}>Chargement...</div>}>
+      <SearchContent />
+    </Suspense>
+  )
+}
