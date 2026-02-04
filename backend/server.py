@@ -671,6 +671,62 @@ async def get_listing_public(listing_id: str):
     
     return ListingResponse(id=str(listing["_id"]), **response_data)
 
+@api_router.get("/users/{user_id}/public")
+async def get_user_public_profile(user_id: str):
+    """Get public profile of a user with their listings"""
+    try:
+        user = await db.users.find_one({"_id": ObjectId(user_id)})
+    except:
+        raise HTTPException(status_code=400, detail="ID utilisateur invalide")
+    
+    if not user:
+        raise HTTPException(status_code=404, detail="Utilisateur non trouvé")
+    
+    # Get user's approved listings
+    listings = await db.listings.find({
+        "user_id": user_id,
+        "status": "approved",
+        "expires_at": {"$gt": datetime.utcnow()}
+    }).sort("created_at", -1).to_list(100)
+    
+    listings_response = [
+        ListingResponse(
+            id=str(l["_id"]),
+            **{k: v for k, v in l.items() if k != "_id"}
+        ) for l in listings
+    ]
+    
+    return {
+        "id": str(user["_id"]),
+        "pseudo": user.get("pseudo", user["first_name"]),
+        "member_since": user.get("created_at", datetime.utcnow()),
+        "is_verified": user.get("identity_verified", False),
+        "listings_count": len(listings_response),
+        "listings": listings_response
+    }
+
+@api_router.get("/users/by-pseudo/{pseudo}")
+async def get_users_by_pseudo(pseudo: str):
+    """Search users by pseudo - multiple users can have the same pseudo"""
+    users = await db.users.find({"pseudo": {"$regex": pseudo, "$options": "i"}}).to_list(50)
+    
+    result = []
+    for user in users:
+        # Get user's listings count
+        listings_count = await db.listings.count_documents({
+            "user_id": str(user["_id"]),
+            "status": "approved"
+        })
+        result.append({
+            "id": str(user["_id"]),
+            "pseudo": user.get("pseudo", user["first_name"]),
+            "member_since": user.get("created_at", datetime.utcnow()),
+            "is_verified": user.get("identity_verified", False),
+            "listings_count": listings_count
+        })
+    
+    return result
+
 @api_router.put("/listings/{listing_id}", response_model=ListingResponse)
 async def update_listing(listing_id: str, update: ListingUpdate, user = Depends(get_current_user)):
     try:
