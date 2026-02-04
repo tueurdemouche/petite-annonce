@@ -303,6 +303,77 @@ def validate_pseudo(pseudo: str) -> str:
         raise HTTPException(status_code=400, detail="Le pseudo ne peut pas dépasser 30 caractères")
     return cleaned
 
+async def send_email(to_email: str, subject: str, html_content: str):
+    """Send email using SMTP"""
+    try:
+        if not SMTP_USER or not SMTP_PASSWORD:
+            logger.warning("SMTP credentials not configured")
+            return False
+            
+        msg = MIMEMultipart('alternative')
+        msg['From'] = SMTP_USER
+        msg['To'] = to_email
+        msg['Subject'] = subject
+        
+        html_part = MIMEText(html_content, 'html', 'utf-8')
+        msg.attach(html_part)
+        
+        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+            server.starttls()
+            server.login(SMTP_USER, SMTP_PASSWORD)
+            server.send_message(msg)
+        
+        logger.info(f"Email sent to {to_email}")
+        return True
+    except Exception as e:
+        logger.error(f"Failed to send email to {to_email}: {str(e)}")
+        return False
+
+async def send_verification_email_to_user(user_email: str, first_name: str, token: str):
+    """Send verification email to new user"""
+    verification_link = f"{SITE_URL}/verify-email?token={token}"
+    
+    html_content = f"""
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            body {{ font-family: Arial, sans-serif; line-height: 1.6; color: #333; }}
+            .container {{ max-width: 600px; margin: 0 auto; padding: 20px; }}
+            .header {{ background: #1e40af; color: white; padding: 20px; text-align: center; border-radius: 10px 10px 0 0; }}
+            .content {{ background: #f8fafc; padding: 30px; border-radius: 0 0 10px 10px; }}
+            .button {{ display: inline-block; background: #1e40af; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; margin: 20px 0; }}
+            .footer {{ text-align: center; margin-top: 20px; color: #64748b; font-size: 12px; }}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>🏠 La Petite Annonce</h1>
+            </div>
+            <div class="content">
+                <h2>Bienvenue {first_name} !</h2>
+                <p>Merci de vous être inscrit sur La Petite Annonce.</p>
+                <p>Pour activer votre compte et pouvoir poster des annonces, veuillez confirmer votre adresse email en cliquant sur le bouton ci-dessous :</p>
+                <p style="text-align: center;">
+                    <a href="{verification_link}" class="button" style="color: white;">✓ Confirmer mon email</a>
+                </p>
+                <p>Ou copiez ce lien dans votre navigateur :</p>
+                <p style="word-break: break-all; background: #e2e8f0; padding: 10px; border-radius: 5px;">{verification_link}</p>
+                <p><strong>Ce lien expire dans 24 heures.</strong></p>
+                <p>Si vous n'avez pas créé de compte, ignorez cet email.</p>
+            </div>
+            <div class="footer">
+                <p>© 2026 La Petite Annonce - lapetiteannonce.fr</p>
+            </div>
+        </div>
+    </body>
+    </html>
+    """
+    
+    return await send_email(user_email, "✓ Confirmez votre email - La Petite Annonce", html_content)
+
 async def send_verification_email(user_data: dict, verification_id: str):
     """Send email notification to admin for identity verification"""
     try:
