@@ -28,7 +28,7 @@ export default function TarifsPage() {
     },
     {
       name: 'Photos +',
-      price: '2,99€',
+      price: '3,99€',
       period: 'par annonce',
       icon: <FaCamera size={30} />,
       color: '#3b82f6',
@@ -45,7 +45,7 @@ export default function TarifsPage() {
     },
     {
       name: 'Boost 14 jours',
-      price: '9,99€',
+      price: '19,99€',
       period: 'pendant 14 jours',
       icon: <FaRocket size={30} />,
       color: '#f59e0b',
@@ -62,7 +62,7 @@ export default function TarifsPage() {
     },
     {
       name: 'Boost 30 jours',
-      price: '19,99€',
+      price: '24,99€',
       period: 'pendant 30 jours',
       icon: <FaCrown size={30} />,
       color: '#8b5cf6',
@@ -72,7 +72,7 @@ export default function TarifsPage() {
         'Visibilité maximale',
         'Position premium',
         'Meilleur rapport qualité/prix',
-        'Économisez 50%'
+        'Économisez 25%'
       ],
       cta: 'Boost maximum',
       popular: false
