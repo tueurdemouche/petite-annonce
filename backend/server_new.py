@@ -34,6 +34,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'petite-annonce-secret-key-2025')
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_DAYS = 30
 
+# Site URL
+SITE_URL = os.environ.get('SITE_URL', 'https://lapetiteannonce.fr')
+
 # Email Settings for verification notifications
 ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'contact@lapetiteannonce.fr')
 SMTP_SERVER = os.environ.get('SMTP_SERVER', 'smtp.ionos.fr')
