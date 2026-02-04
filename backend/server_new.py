@@ -284,6 +284,7 @@ def user_to_response(user: dict) -> UserResponse:
         pseudo=user.get("pseudo", user["first_name"]),  # Use first_name as default if no pseudo
         birth_date=user["birth_date"],
         is_verified=user.get("is_verified", False),
+        email_verified=user.get("email_verified", False),  # Nouveau champ
         is_admin=user.get("is_admin", False),
         created_at=user.get("created_at", datetime.utcnow()),
         identity_verified=user.get("identity_verified", False)
