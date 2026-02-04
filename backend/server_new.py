@@ -634,9 +634,9 @@ async def verify_identity(verification: IdentityVerification, user = Depends(get
 
 @api_router.post("/listings", response_model=ListingResponse)
 async def create_listing(listing: ListingCreate, user = Depends(get_current_user)):
-    # Check if user is verified (identity)
-    if not user.get("identity_verified", False):
-        raise HTTPException(status_code=400, detail="Veuillez vérifier votre identité avant de poster une annonce")
+    # Check if email is verified
+    if not user.get("email_verified", False):
+        raise HTTPException(status_code=400, detail="Veuillez vérifier votre email avant de poster une annonce. Consultez votre boîte mail.")
     
     # Limit to 5 free photos
     if len(listing.photos) > 5:
@@ -644,7 +644,7 @@ async def create_listing(listing: ListingCreate, user = Depends(get_current_user
     
     listing_dict = {
         "user_id": str(user["_id"]),
-        "user_name": f"{user['first_name']} {user['last_name']}",
+        "user_name": user.get("pseudo", f"{user['first_name']} {user['last_name']}"),
         **listing.dict(),
         "status": "pending",
         "is_boosted": False,
