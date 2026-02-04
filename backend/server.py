@@ -42,9 +42,9 @@ SMTP_PASSWORD = os.environ.get('SMTP_PASSWORD', '')
 
 # Pricing Configuration (in EUR)
 PRICING = {
-    "extra_photos": 2.99,      # 5 photos supplémentaires
-    "boost_14_days": 9.99,     # Boost 14 jours
-    "boost_30_days": 19.99     # Boost 30 jours
+    "extra_photos": 3.99,      # 5 photos supplémentaires
+    "boost_14_days": 19.99,    # Boost 14 jours
+    "boost_30_days": 24.99     # Boost 30 jours
 }
 
 # Create the main app
