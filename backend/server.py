@@ -65,6 +65,7 @@ class UserCreate(BaseModel):
     first_name: str
     last_name: str
     birth_date: str  # YYYY-MM-DD format
+    pseudo: str  # Pseudonyme pour les annonces (sans caractères spéciaux)
 
 class UserLogin(BaseModel):
     email: str
