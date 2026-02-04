@@ -380,6 +380,9 @@ async def register(user_data: UserCreate):
     if age < 18:
         raise HTTPException(status_code=400, detail="Vous devez avoir au moins 18 ans pour vous inscrire")
     
+    # Validate and clean pseudo
+    clean_pseudo = validate_pseudo(user_data.pseudo)
+    
     # Check if email exists
     existing = await db.users.find_one({"email": user_data.email})
     if existing:
@@ -390,13 +393,14 @@ async def register(user_data: UserCreate):
     if existing_phone:
         raise HTTPException(status_code=400, detail="Ce numéro de téléphone est déjà utilisé")
     
-    # Create user
+    # Create user (pseudo can be shared by multiple users)
     user_dict = {
         "email": user_data.email,
         "phone": user_data.phone,
         "password": hash_password(user_data.password),
         "first_name": user_data.first_name,
         "last_name": user_data.last_name,
+        "pseudo": clean_pseudo,  # Pseudonyme validé
         "birth_date": user_data.birth_date,
         "is_verified": False,
         "is_admin": False,
