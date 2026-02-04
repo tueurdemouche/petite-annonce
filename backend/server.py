@@ -269,12 +269,26 @@ def user_to_response(user: dict) -> UserResponse:
         phone=user["phone"],
         first_name=user["first_name"],
         last_name=user["last_name"],
+        pseudo=user.get("pseudo", user["first_name"]),  # Use first_name as default if no pseudo
         birth_date=user["birth_date"],
         is_verified=user.get("is_verified", False),
         is_admin=user.get("is_admin", False),
         created_at=user.get("created_at", datetime.utcnow()),
         identity_verified=user.get("identity_verified", False)
     )
+
+def validate_pseudo(pseudo: str) -> str:
+    """Validate and clean pseudo - only alphanumeric characters allowed"""
+    import re
+    # Remove special characters, keep only letters, numbers, and spaces
+    cleaned = re.sub(r'[^a-zA-Z0-9\s]', '', pseudo)
+    # Remove extra spaces
+    cleaned = ' '.join(cleaned.split())
+    if len(cleaned) < 2:
+        raise HTTPException(status_code=400, detail="Le pseudo doit contenir au moins 2 caractères alphanumériques")
+    if len(cleaned) > 30:
+        raise HTTPException(status_code=400, detail="Le pseudo ne peut pas dépasser 30 caractères")
+    return cleaned
 
 async def send_verification_email(user_data: dict, verification_id: str):
     """Send email notification to admin for identity verification"""
