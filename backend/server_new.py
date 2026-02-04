@@ -84,9 +84,13 @@ class UserResponse(BaseModel):
     pseudo: str  # Pseudonyme affiché sur les annonces
     birth_date: str
     is_verified: bool
+    email_verified: bool = False  # Nouveau champ pour la vérification email
     is_admin: bool
     created_at: datetime
     identity_verified: bool
+
+class ResendVerificationEmail(BaseModel):
+    email: str
 
 class TokenResponse(BaseModel):
     access_token: str
