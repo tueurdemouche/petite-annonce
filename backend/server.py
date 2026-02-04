@@ -77,6 +77,7 @@ class UserResponse(BaseModel):
     phone: str
     first_name: str
     last_name: str
+    pseudo: str  # Pseudonyme affiché sur les annonces
     birth_date: str
     is_verified: bool
     is_admin: bool
