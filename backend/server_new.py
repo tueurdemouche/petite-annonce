@@ -477,6 +477,9 @@ async def register(user_data: UserCreate):
     if existing_phone:
         raise HTTPException(status_code=400, detail="Ce numéro de téléphone est déjà utilisé")
     
+    # Generate email verification token
+    email_token = generate_verification_token()
+    
     # Create user (pseudo can be shared by multiple users)
     user_dict = {
         "email": user_data.email,
@@ -487,6 +490,9 @@ async def register(user_data: UserCreate):
         "pseudo": clean_pseudo,  # Pseudonyme validé
         "birth_date": user_data.birth_date,
         "is_verified": False,
+        "email_verified": False,  # Email non vérifié par défaut
+        "email_verification_token": email_token,
+        "email_verification_expires": datetime.utcnow() + timedelta(hours=24),
         "is_admin": False,
         "identity_verified": False,
         "id_photo": None,
@@ -497,12 +503,65 @@ async def register(user_data: UserCreate):
     result = await db.users.insert_one(user_dict)
     user_dict["_id"] = result.inserted_id
     
+    # Send verification email
+    await send_verification_email_to_user(user_data.email, user_data.first_name, email_token)
+    
     token = create_access_token({"sub": str(result.inserted_id)})
     
     return TokenResponse(
         access_token=token,
         user=user_to_response(user_dict)
     )
+
+@api_router.get("/auth/verify-email")
+async def verify_email(token: str):
+    """Verify user email with token"""
+    user = await db.users.find_one({
+        "email_verification_token": token,
+        "email_verification_expires": {"$gt": datetime.utcnow()}
+    })
+    
+    if not user:
+        raise HTTPException(status_code=400, detail="Lien de vérification invalide ou expiré")
+    
+    await db.users.update_one(
+        {"_id": user["_id"]},
+        {
+            "$set": {"email_verified": True},
+            "$unset": {"email_verification_token": "", "email_verification_expires": ""}
+        }
+    )
+    
+    return {"message": "Email vérifié avec succès ! Vous pouvez maintenant poster des annonces.", "success": True}
+
+@api_router.post("/auth/resend-verification")
+async def resend_verification_email(data: ResendVerificationEmail):
+    """Resend verification email"""
+    user = await db.users.find_one({"email": data.email})
+    
+    if not user:
+        raise HTTPException(status_code=404, detail="Utilisateur non trouvé")
+    
+    if user.get("email_verified", False):
+        raise HTTPException(status_code=400, detail="Email déjà vérifié")
+    
+    # Generate new token
+    new_token = generate_verification_token()
+    
+    await db.users.update_one(
+        {"_id": user["_id"]},
+        {
+            "$set": {
+                "email_verification_token": new_token,
+                "email_verification_expires": datetime.utcnow() + timedelta(hours=24)
+            }
+        }
+    )
+    
+    # Send new verification email
+    await send_verification_email_to_user(user["email"], user["first_name"], new_token)
+    
+    return {"message": "Email de vérification renvoyé"}
 
 @api_router.post("/auth/login", response_model=TokenResponse)
 async def login(login_data: UserLogin):
